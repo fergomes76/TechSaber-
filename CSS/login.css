@@ -1,0 +1,193 @@
+/* LOGIN CSS - TechSaber+
+   Estilos da página de login e seleção de perfil */
+
+/* ── LAYOUT PRINCIPAL ── */
+.login-main {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+/* ── TELA DE ESCOLHA DE PERFIL ── */
+.perfil-section {
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+}
+
+.perfil-section h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: var(--fonte-grande);
+    margin-bottom: 0.5rem;
+}
+
+.perfil-section p {
+    color: var(--texto-suave);
+    margin-bottom: 2rem;
+}
+
+.perfil-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.perfil-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    transition: border-color 0.2s;
+    text-align: left;
+    position: relative;
+}
+
+.perfil-card:hover {
+    border-color: var(--cor-primaria);
+}
+
+/* seta no lado direito do card */
+.perfil-card::after {
+    content: "›";
+    position: absolute;
+    right: 1.5rem;
+    font-size: 1.5rem;
+    color: var(--texto-suave);
+}
+
+.perfil-icone {
+    font-size: 1.5rem;
+}
+
+.perfil-card h2 {
+    font-size: var(--fonte-normal);
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+}
+
+.perfil-card p {
+    font-size: var(--fonte-pequena);
+    color: var(--texto-suave);
+    margin: 0;
+}
+
+/* ── TELA DE FORMULÁRIO DE LOGIN ── */
+.form-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    padding: 2.5rem;
+    text-align: center;
+}
+
+.login-card .nav-logo {
+    font-size: var(--fonte-media);
+    font-weight: 700;
+}
+
+/* ── MENSAGENS DE ERRO E SUCESSO ── */
+.msg-erro {
+    background: #ef4444;
+    color: white;
+    padding: 0.7rem 1rem;
+    border-radius: var(--borda-raio-btn);
+    font-size: var(--fonte-pequena);
+}
+
+.msg-sucesso {
+    background: #10b981;
+    color: white;
+    padding: 0.7rem 1rem;
+    border-radius: var(--borda-raio-btn);
+    font-size: var(--fonte-pequena);
+}
+
+/* ── CAMPOS DO FORMULÁRIO ── */
+.form-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    text-align: left;
+}
+
+.form-grupo label {
+    font-size: var(--fonte-pequena);
+    color: var(--texto-suave);
+}
+
+.form-grupo input {
+    padding: 0.8rem 1rem;
+    border-radius: var(--borda-raio-btn);
+    border: 1px solid var(--card-borda);
+    background: rgba(255,255,255,0.05);
+    color: var(--texto-claro);
+    font-family: var(--fonte);
+    font-size: var(--fonte-normal);
+}
+
+.form-grupo input::placeholder {
+    color: var(--texto-suave);
+}
+
+.form-grupo input:focus {
+    outline: none;
+    border-color: var(--cor-primaria); /* borda roxa ao focar */
+}
+
+/* ── BOTÃO BLOCO ── */
+.btn-block {
+    width: 100%;
+    padding: 0.9rem;
+    font-size: var(--fonte-normal);
+}
+
+/* ── RODAPÉ DO FORM ── */
+.login-rodape {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: var(--fonte-pequena);
+    color: var(--texto-suave);
+}
+
+.login-rodape a {
+    color: var(--cor-destaque);
+}
+
+/* ── BOTÃO VOLTAR ── */
+.btn-voltar {
+    background: transparent;
+    border: none;
+    color: var(--texto-suave);
+    cursor: pointer;
+    font-family: var(--fonte);
+    font-size: var(--fonte-pequena);
+    margin-top: 0.5rem;
+}
+
+.btn-voltar:hover {
+    color: var(--texto-claro);
+}
+
+/* ══ RESPONSIVO ══ */
+@media (max-width: 480px) {
+    .login-card {
+        padding: 1.5rem;
+    }
+
+    .perfil-section h1 {
+        font-size: var(--fonte-media);
+    }
+}

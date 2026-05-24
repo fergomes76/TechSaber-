@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechSaber+ | Perfil</title>
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/perfil.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ══ NAVBAR ══ -->
+    <header>
+        <nav>
+            <span class="nav-logo">🎓 TechSaber+</span>
+            <span style="display:flex; gap:0.5rem;">
+                <a href="dashboard-aluno.html"><button class="btn-primario">Voltar</button></a>
+                <a href="index.html"><button class="btn-destaque">Sair</button></a>
+            </span>
+        </nav>
+    </header>
+
+    <main class="perfil-main">
+
+        <!-- ══ LINHA 1: ALUNO + OFENSIVA ══ -->
+        <section class="perfil-topo">
+
+            <!-- card aluno - só visual -->
+            <article class="card perfil-aluno">
+                <img src="assets/images/avatar.png" alt="Foto do aluno" class="perfil-avatar"
+                     onerror="this.style.display='none'">
+                <span class="perfil-avatar-emoji" id="avatar-emoji">🧑‍💻</span>
+                <div class="perfil-info">
+                    <h1 id="perfil-nome">Aluno</h1>
+                    <p>
+                        <span>📖</span>
+                        <span id="perfil-curso">BANCO DE DADOS - ANDAMENTO</span>
+                    </p>
+                </div>
+            </article>
+
+            <!-- card ofensiva - clicável -->
+            <article class="card ofensiva-card" onclick="window.location.href='ofensiva.html'">
+                <span class="ofensiva-fogo">🔥</span>
+                <strong class="ofensiva-numero" id="dias-consecutivos">12</strong>
+                <p>DIAS CONSECUTIVOS</p>
+                <div class="ofensiva-barras">
+                    <span class="barra ativa"></span>
+                    <span class="barra ativa"></span>
+                    <span class="barra ativa"></span>
+                    <span class="barra ativa"></span>
+                    <span class="barra ativa"></span>
+                    <span class="barra ativa"></span>
+                    <span class="barra"></span>
+                    <span class="barra"></span>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- ══ LINHA 2: STATS ══ -->
+        <section class="perfil-stats">
+
+            <article class="card stat-card">
+                <span class="stat-icone">⚡</span>
+                <p class="stat-label">TOTAL DE XP</p>
+                <strong class="stat-valor">200<small>XP</small></strong>
+            </article>
+
+            <article class="card stat-card">
+                <span class="stat-icone">🏆</span>
+                <p class="stat-label">DIAS ATIVOS</p>
+                <strong class="stat-valor">12</strong>
+            </article>
+
+            <article class="card stat-card">
+                <span class="stat-icone">✅</span>
+                <p class="stat-label">MÓDULOS FEITOS</p>
+                <strong class="stat-valor">31 / 35</strong>
+            </article>
+
+        </section>
+
+    </main>
+
+    <script src="js/main.js"></script>
+
+</body>
+</html>

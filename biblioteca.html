@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechSaber+ | Biblioteca de Cursos</title>
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/biblioteca.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ══ NAVBAR ══ -->
+    <header>
+        <nav>
+            <span class="nav-logo">🎓 TechSaber+</span>
+            <span style="display:flex; gap:0.5rem;">
+                <a href="dashboard-aluno.html"><button class="btn-primario">Voltar</button></a>
+                <a href="index.html"><button class="btn-destaque">Sair</button></a>
+            </span>
+        </nav>
+    </header>
+
+    <main class="biblioteca-main">
+
+        <!-- ══ BARRA DE BUSCA ══ -->
+        <section class="busca-section">
+            <input type="search" placeholder="Busque seu curso" class="busca-input" id="busca">
+        </section>
+
+        <!-- ══ CATEGORIAS ══ -->
+        <section class="categorias-section">
+            <h1>Categorias</h1>
+
+            <ul class="categorias-grid">
+
+                <li class="card categoria-card" onclick="window.location.href='curso.html'">
+                    <span class="categoria-icone">💻</span>
+                    <p>Front End</p>
+                </li>
+
+                <li class="card categoria-card" onclick="window.location.href='curso.html'">
+                    <span class="categoria-icone">🖥️</span>
+                    <p>Back End</p>
+                </li>
+
+                <li class="card categoria-card" onclick="window.location.href='curso.html'">
+                    <span class="categoria-icone">☁️</span>
+                    <p>Banco de Dados (IA)</p>
+                </li>
+
+                <li class="card categoria-card" onclick="window.location.href='curso.html'">
+                    <span class="categoria-icone">⚙️</span>
+                    <p>Engenharia de Software</p>
+                </li>
+
+                <li class="card categoria-card" onclick="window.location.href='curso.html'">
+                    <span class="categoria-icone">🤝</span>
+                    <p>Soft Skills</p>
+                </li>
+
+                <li class="card categoria-card" onclick="window.location.href='curso.html'">
+                    <span class="categoria-icone">🖐️</span>
+                    <p>Acessibilidade (Libras)</p>
+                </li>
+
+            </ul>
+        </section>
+
+    </main>
+
+    <script src="js/main.js"></script>
+    <script>
+    /* filtra os cards ao digitar na busca */
+    document.getElementById("busca").addEventListener("input", function() {
+        const termo = this.value.toLowerCase();
+        const cards = document.querySelectorAll(".categoria-card");
+
+        cards.forEach(card => {
+            const nome = card.querySelector("p").textContent.toLowerCase();
+            if (nome.includes(termo)) {
+                card.style.display = "flex"; /* mostra */
+            } else {
+                card.style.display = "none"; /* esconde */
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

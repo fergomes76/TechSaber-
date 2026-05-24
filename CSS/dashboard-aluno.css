@@ -1,0 +1,87 @@
+/* DASHBOARD ALUNO CSS - TechSaber+
+   Estilos da tela principal do aluno */
+
+/* ── LAYOUT PRINCIPAL ── */
+.dashboard-main {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+/* ── SEÇÃO DE SELEÇÃO ── */
+.selecao-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas no desktop */
+    gap: 1.5rem;
+    max-width: 900px;
+    width: 100%;
+}
+
+/* ── CARDS DE SELEÇÃO ── */
+.selecao-card {
+    position: relative;
+    padding: 2rem;
+    cursor: pointer;
+    overflow: hidden; /* esconde o ícone de fundo */
+    transition: transform 0.2s, border-color 0.2s;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.selecao-card:hover {
+    transform: translateY(-4px); /* sobe levemente ao hover */
+    border-color: var(--cor-primaria);
+}
+
+/* ícone principal pequeno */
+.selecao-icone {
+    font-size: 1.8rem;
+}
+
+/* ícone grande de fundo decorativo */
+.selecao-icone-fundo {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    font-size: 5rem;
+    opacity: 0.1; /* bem transparente */
+}
+
+.selecao-card h2 {
+    font-size: var(--fonte-normal);
+    font-weight: 600;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.selecao-card p {
+    font-size: var(--fonte-pequena);
+    color: var(--texto-suave);
+    flex: 1; /* empurra o link para baixo */
+}
+
+/* link de acesso */
+.selecao-link {
+    font-size: var(--fonte-pequena);
+    color: var(--texto-suave);
+    font-weight: 600;
+}
+
+/* card de destaque (trilhas) com borda roxa */
+.selecao-card.destaque {
+    border-color: var(--cor-primaria);
+}
+
+.destaque-link {
+    color: var(--cor-destaque) !important; /* rosa */
+}
+
+/* ══ RESPONSIVO ══ */
+@media (max-width: 768px) {
+    .selecao-section {
+        grid-template-columns: 1fr; /* 1 coluna no celular */
+    }
+}

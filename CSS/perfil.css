@@ -1,0 +1,157 @@
+/* PERFIL CSS - TechSaber+
+   Estilos da tela de perfil do aluno */
+
+/* ── LAYOUT PRINCIPAL ── */
+.perfil-main {
+    padding: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* ── LINHA 1: ALUNO + OFENSIVA ── */
+.perfil-topo {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* aluno maior, ofensiva menor */
+    gap: 1.5rem;
+}
+
+/* ── CARD ALUNO ── */
+.perfil-aluno {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem;
+}
+
+.perfil-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.perfil-avatar-emoji {
+    font-size: 4rem;
+}
+
+.perfil-info h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: var(--fonte-grande);
+    margin-bottom: 0.5rem;
+}
+
+.perfil-info p {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: var(--fonte-pequena);
+    color: var(--texto-suave);
+}
+
+/* ── CARD OFENSIVA ── */
+.ofensiva-card {
+    text-align: center;
+    padding: 2rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.ofensiva-card:hover {
+    transform: translateY(-4px);
+}
+
+.ofensiva-fogo {
+    font-size: 2rem;
+}
+
+.ofensiva-numero {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--texto-claro);
+    line-height: 1;
+}
+
+.ofensiva-card p {
+    font-size: 0.7rem;
+    color: var(--cor-destaque);
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.ofensiva-barras {
+    display: flex;
+    gap: 0.3rem;
+    margin-top: 0.5rem;
+}
+
+.barra {
+    width: 18px;
+    height: 5px;
+    border-radius: 3px;
+    background: var(--card-borda);
+}
+
+.barra.ativa {
+    background: var(--cor-destaque);
+}
+
+/* ── LINHA 2: STATS ── */
+.perfil-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas iguais */
+    gap: 1.5rem;
+}
+
+.stat-card {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.stat-icone {
+    font-size: 1.5rem;
+}
+
+.stat-label {
+    font-size: 0.7rem;
+    color: var(--texto-suave);
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.stat-valor {
+    font-size: var(--fonte-grande);
+    font-weight: 700;
+    color: var(--texto-claro);
+}
+
+.stat-valor small {
+    font-size: var(--fonte-pequena);
+    color: var(--texto-suave);
+}
+
+/* ══ RESPONSIVO ══ */
+@media (max-width: 768px) {
+    .perfil-topo {
+        grid-template-columns: 1fr; /* empilha no tablet */
+    }
+
+    .perfil-stats {
+        grid-template-columns: 1fr; /* empilha no celular */
+    }
+}
+
+@media (max-width: 480px) {
+    .perfil-aluno {
+        flex-direction: column;
+        text-align: center;
+    }
+}

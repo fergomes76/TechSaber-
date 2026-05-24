@@ -1,0 +1,226 @@
+/* TRILHAS CSS - TechSaber+
+   Estilos da tela de trilhas do aluno */
+
+/* ── LAYOUT PRINCIPAL ── */
+.trilhas-main {
+    padding: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* ── SEÇÃO BOAS VINDAS ── */
+.bemvindo-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+.bemvindo-texto h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: var(--fonte-grande);
+    margin-bottom: 0.5rem;
+}
+
+.bemvindo-texto p {
+    color: var(--texto-suave);
+    max-width: 400px;
+}
+
+/* ── CARD OFENSIVA ── */
+.ofensiva-card {
+    text-align: center;
+    padding: 1.5rem 2rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+    min-width: 180px;
+}
+
+.ofensiva-card:hover {
+    transform: translateY(-4px);
+}
+
+.ofensiva-fogo {
+    font-size: 2rem;
+    display: block;
+}
+
+.ofensiva-numero {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--cor-destaque);
+    display: block;
+}
+
+.ofensiva-card p {
+    font-size: var(--fonte-pequena);
+    color: var(--texto-suave);
+    margin-bottom: 1rem;
+}
+
+/* barras de progresso da ofensiva */
+.ofensiva-barras {
+    display: flex;
+    gap: 0.4rem;
+    justify-content: center;
+}
+
+.barra {
+    width: 20px;
+    height: 6px;
+    border-radius: 3px;
+    background: var(--card-borda);
+}
+
+.barra.ativa {
+    background: var(--cor-destaque); /* rosa nas ativas */
+}
+
+/* ── SEÇÃO TRILHA ── */
+.trilha-section {
+    width: 100%;
+}
+
+.trilha-card {
+    padding: 2rem;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+
+.trilha-card:hover {
+    border-color: var(--cor-primaria);
+}
+
+/* lista de passos da trilha */
+.trilha-passos {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    list-style: none;
+    position: relative;
+}
+
+/* linha conectando os passos */
+.trilha-passos::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    right: 5%;
+    height: 2px;
+    background: var(--card-borda);
+    border-top: 2px dashed var(--card-borda);
+    z-index: 0;
+}
+
+.passo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    position: relative;
+    z-index: 1;
+    background: var(--card-fundo);
+    border: 2px solid var(--card-borda);
+}
+
+.passo.concluido {
+    background: var(--cor-primaria);
+    border-color: var(--cor-primaria);
+    color: white;
+}
+
+.passo.andamento {
+    background: var(--cor-destaque);
+    border-color: var(--cor-destaque);
+}
+
+.passo.bloqueado {
+    opacity: 0.4;
+}
+
+/* badge andamento */
+.badge-andamento {
+    position: absolute;
+    top: -24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--cor-destaque);
+    color: white;
+    font-size: 0.6rem;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+/* ── CURSOS EM ANDAMENTO ── */
+.cursos-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.curso-andamento {
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.curso-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.curso-header h2 {
+    font-size: var(--fonte-normal);
+    font-weight: 600;
+}
+
+.curso-header span {
+    color: var(--texto-suave);
+    font-size: var(--fonte-pequena);
+}
+
+/* barra de progresso nativa */
+progress {
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    border: none;
+    background: var(--card-borda);
+}
+
+progress::-webkit-progress-bar {
+    background: var(--card-borda);
+    border-radius: 3px;
+}
+
+progress::-webkit-progress-value {
+    background: var(--cor-primaria);
+    border-radius: 3px;
+}
+
+.curso-andamento a {
+    font-size: var(--fonte-pequena);
+    color: var(--cor-primaria);
+}
+
+/* ══ RESPONSIVO ══ */
+@media (max-width: 768px) {
+    .bemvindo-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .bemvindo-texto h1 {
+        font-size: var(--fonte-media);
+    }
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechSaber+ | Trilhas</title>
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/trilhas.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ══ NAVBAR ══ -->
+    <header>
+        <nav>
+            <span class="nav-logo">🎓 TechSaber+</span>
+            <span style="display:flex; gap:0.5rem;">
+                <a href="dashboard-aluno.html"><button class="btn-primario">Voltar</button></a>
+                <a href="index.html"><button class="btn-destaque">Sair</button></a>
+            </span>
+        </nav>
+    </header>
+
+    <main class="trilhas-main">
+
+        <!-- ══ SEÇÃO BOAS VINDAS + OFENSIVA ══ -->
+        <section class="bemvindo-section">
+
+            <article class="bemvindo-texto">
+                <h1>Bem-vindo de volta, <span class="destaque">Aluno!</span></h1>
+                <p>Você está a apenas 2 lições de concluir o módulo "Banco de dados". Mantenha o ritmo!</p>
+            </article>
+
+            <!-- card ofensiva clicável -->
+            <article class="card ofensiva-card" onclick="window.location.href='ofensiva.html'">
+                <span class="ofensiva-fogo">🔥</span>
+                <strong class="ofensiva-numero">12</strong>
+                <p>DIAS CONSECUTIVOS</p>
+                <div class="ofensiva-barras">
+                    <span class="barra ativa"></span>
+                    <span class="barra ativa"></span>
+                    <span class="barra ativa"></span>
+                    <span class="barra ativa"></span>
+                    <span class="barra"></span>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- ══ SEÇÃO MINI TRILHA ══ -->
+        <section class="trilha-section">
+            <article class="card trilha-card" onclick="window.location.href='curso.html'">
+
+                <ol class="trilha-passos">
+                    <li class="passo concluido">✔</li>
+                    <li class="passo andamento">
+                        <span class="badge-andamento">ANDAMENTO</span>
+                        📖
+                    </li>
+                    <li class="passo bloqueado">🔒</li>
+                    <li class="passo bloqueado">🔒</li>
+                </ol>
+
+            </article>
+        </section>
+
+        <!-- ══ SEÇÃO CURSOS EM ANDAMENTO ══ -->
+        <section class="cursos-section">
+
+            <article class="card curso-andamento">
+                <header class="curso-header">
+                    <h2>Banco de dados</h2>
+                    <span>74%</span>
+                </header>
+                <progress value="74" max="100"></progress>
+                <a href="curso.html">Voltar ▶</a>
+            </article>
+
+            <article class="card curso-andamento">
+                <header class="curso-header">
+                    <h2>Front-end</h2>
+                    <span>12%</span>
+                </header>
+                <progress value="12" max="100"></progress>
+                <a href="curso.html">Voltar ▶</a>
+            </article>
+
+        </section>
+
+    </main>
+
+    <script src="js/main.js"></script>
+
+</body>
+</html>

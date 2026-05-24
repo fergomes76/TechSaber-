@@ -12,4 +12,10 @@
     /* Faz o tamanho dos elementos incluir borda e padding
        no cálculo, evitando que elementos "estourem" o layout */
     box-sizing: border-box;
+
+    /* remove borda e padding padrão do fieldset */
+      fieldset {
+    border: none;
+    padding: 0;
+}
 }

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechSaber+ | Cadastro</title>
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ══ NAVBAR ══ -->
+    <header> 
+        <nav>
+            <a href="index.html"><span class="nav-logo">🎓 TechSaber+</span></a>
+            <span style="display:flex; gap:0.5rem;">
+                <a href="index.html"><button class="btn-primario">Voltar</button></a>
+                <a href="login.html"><button class="btn-destaque">Entrar</button></a>
+            </span>
+        </nav>
+    </header>
+
+    <main class="login-main">
+
+        <section class="form-section">
+            <article class="login-card card">
+
+                <h1>Crie sua conta</h1>
+
+                <!-- alerta de erro -->
+                <p class="msg-erro" id="msg-erro" role="alert" style="display:none;">
+                    Preencha todos os campos!
+                </p>
+
+                <!-- alerta de sucesso -->
+                <p class="msg-sucesso" id="msg-sucesso" role="status" style="display:none;">
+                    Conta criada com sucesso!
+                </p>
+
+                <fieldset class="form-grupo">
+                    <label for="cad-nome">Nome</label>
+                    <input type="text" id="cad-nome" placeholder="digite seu nome" autocomplete="name">
+                </fieldset>
+
+                <fieldset class="form-grupo">
+                    <label for="cad-email">Email</label>
+                    <input type="email" id="cad-email" placeholder="digite seu email" autocomplete="email">
+                </fieldset>
+
+                <fieldset class="form-grupo">
+                    <label for="cad-senha">Senha</label>
+                    <input type="password" id="cad-senha" placeholder="digite sua senha" autocomplete="new-password">
+                </fieldset>
+
+                <button class="btn-destaque btn-block" onclick="criarConta()">Crie sua conta!</button>
+
+                <p class="login-rodape">
+                    Já tem conta? <a href="login.html">Faça login!</a>
+                </p>
+
+            </article>
+        </section>
+
+    </main>
+
+    <script>
+        /* CADASTRO - redireciona direto para o dashboard do aluno */
+        function criarConta() {
+            const nome  = document.getElementById("cad-nome").value.trim();
+            const email = document.getElementById("cad-email").value.trim();
+            const senha = document.getElementById("cad-senha").value.trim();
+            const erro    = document.getElementById("msg-erro");
+            const sucesso = document.getElementById("msg-sucesso");
+
+            erro.style.display    = "none";
+            sucesso.style.display = "none";
+
+            /* valida campos vazios */
+            if (!nome || !email || !senha) {
+                erro.style.display = "block";
+                return;
+            }
+
+            /* mostra sucesso e redireciona */
+            sucesso.style.display = "block";
+            setTimeout(() => {
+                window.location.href = "dashboard-aluno.html";
+            }, 1000);
+        }
+    </script>
+
+</body>
+</html>

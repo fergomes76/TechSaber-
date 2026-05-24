@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechSaber+ | Aluno</title>
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard-aluno.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ══ NAVBAR ══ -->
+    <header>
+        <nav>
+            <span class="nav-logo">🎓 TechSaber+</span>
+            <span style="display:flex; gap:0.5rem;">
+                <a href="index.html"><button class="btn-primario">Sair</button></a>
+            </span>
+        </nav>
+    </header>
+
+    <main class="dashboard-main">
+
+        <!-- ══ SELEÇÃO DE ÁREA ══ -->
+        <section class="selecao-section">
+
+            <article class="card selecao-card" onclick="window.location.href='biblioteca.html'">
+                <span class="selecao-icone">📚</span>
+                <span class="selecao-icone-fundo">📖</span>
+                <h2>Biblioteca de Cursos</h2>
+                <p>Explore nosso repositório de conhecimento técnico.</p>
+                <span class="selecao-link">ACESSE →</span>
+            </article>
+
+            <article class="card selecao-card destaque" onclick="window.location.href='trilhas.html'">
+                <span class="selecao-icone">⚡</span>
+                <span class="selecao-icone-fundo">⚡</span>
+                <h2>Trilhas de aprendizagem ativa</h2>
+                <p>Retome suas atividades iniciadas.</p>
+                <span class="selecao-link destaque-link">ACESSE →</span>
+            </article>
+
+            <article class="card selecao-card" onclick="window.location.href='perfil.html'">
+                <span class="selecao-icone">👤</span>
+                <span class="selecao-icone-fundo">👤</span>
+                <h2>Perfil</h2>
+                <p>Entre no seu perfil, visualize suas conquistas e acompanhe a sua ofensiva!</p>
+                <span class="selecao-link">ACESSE →</span>
+            </article>
+
+        </section>
+
+    </main>
+
+    <script src="js/main.js"></script>
+
+</body>
+</html>
