@@ -1,6 +1,15 @@
 /* LOGIN CSS - TechSaber+
    Estilos da página de login e seleção de perfil */
 
+/* ── NAVBAR ── */
+menu {
+    display: flex;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
 /* ── LAYOUT PRINCIPAL ── */
 .login-main {
     min-height: 100vh;
@@ -17,13 +26,13 @@
     width: 100%;
 }
 
-.perfil-section h1 {
+.perfil-section hgroup h1 {
     font-family: 'Space Grotesk', sans-serif;
     font-size: var(--fonte-grande);
     margin-bottom: 0.5rem;
 }
 
-.perfil-section p {
+.perfil-section hgroup p {
     color: var(--texto-suave);
     margin-bottom: 2rem;
 }
@@ -99,6 +108,7 @@
 
 /* ── MENSAGENS DE ERRO E SUCESSO ── */
 .msg-erro {
+    display: block;
     background: #ef4444;
     color: white;
     padding: 0.7rem 1rem;
@@ -107,6 +117,7 @@
 }
 
 .msg-sucesso {
+    display: block;
     background: #10b981;
     color: white;
     padding: 0.7rem 1rem;
@@ -114,20 +125,32 @@
     font-size: var(--fonte-pequena);
 }
 
-/* ── CAMPOS DO FORMULÁRIO ── */
-.form-grupo {
+/* ── FIELDSET ── */
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
+    gap: 1.2rem;
+    width: 100%;
+}
+
+fieldset legend {
+    display: none;
+}
+
+fieldset label {
+    font-size: var(--fonte-pequena);
+    color: var(--texto-suave);
+    display: block;
+    margin-bottom: 0.4rem;
     text-align: left;
 }
 
-.form-grupo label {
-    font-size: var(--fonte-pequena);
-    color: var(--texto-suave);
-}
-
-.form-grupo input {
+fieldset input {
+    display: block;
+    width: 100%;
     padding: 0.8rem 1rem;
     border-radius: var(--borda-raio-btn);
     border: 1px solid var(--card-borda);
@@ -135,15 +158,16 @@
     color: var(--texto-claro);
     font-family: var(--fonte);
     font-size: var(--fonte-normal);
+    box-sizing: border-box;
 }
 
-.form-grupo input::placeholder {
+fieldset input::placeholder {
     color: var(--texto-suave);
 }
 
-.form-grupo input:focus {
+fieldset input:focus {
     outline: none;
-    border-color: var(--cor-primaria); /* borda roxa ao focar */
+    border-color: var(--cor-primaria);
 }
 
 /* ── BOTÃO BLOCO ── */
@@ -187,7 +211,7 @@
         padding: 1.5rem;
     }
 
-    .perfil-section h1 {
+    .perfil-section hgroup h1 {
         font-size: var(--fonte-media);
     }
 }

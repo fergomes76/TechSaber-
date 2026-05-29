@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechSaber+ – Painel do Administrador</title>
+
+  <!-- Fonts: Sora (títulos) + DM Sans (corpo) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Estilos da página -->
+  <link rel="stylesheet" href="CSS/dashboard-admin.css" />
+</head>
+
+<body>
+
+  <!-- =====================================================
+       HEADER – logo + saudação ao administrador
+       ===================================================== -->
+  <header class="header">
+
+    <!-- Botão voltar para o login -->
+    <a href="login.html" class="btn-voltar" aria-label="Voltar para o login">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="2.2"
+           stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6"/>
+      </svg>
+      Voltar
+    </a>
+
+    <span class="header__logo">TechSaber+</span>
+    <p class="header__greeting">Bem-vindo, <strong>Administrador</strong> 🛡️</p>
+
+  </header>
+
+
+  <!-- =====================================================
+       NAVEGAÇÃO POR ABAS
+       Visão Geral | Professores | Alunos
+       ===================================================== -->
+  <nav class="tabs" aria-label="Seções do painel">
+
+    <button class="tab-btn" data-tab="aba-visao-geral"  aria-selected="true">
+      Visão Geral
+    </button>
+
+    <button class="tab-btn" data-tab="aba-professores" aria-selected="false">
+      Gerenciar Professores
+    </button>
+
+    <button class="tab-btn" data-tab="aba-alunos"      aria-selected="false">
+      Gerenciar Alunos
+    </button>
+
+  </nav>
+
+
+  <!-- =====================================================
+       CONTEÚDO PRINCIPAL
+       ===================================================== -->
+  <main class="main">
+
+
+    <!-- =================================================
+         ABA 1: VISÃO GERAL
+         Cards de totais + gráficos de frequência e desempenho
+         ================================================= -->
+    <section id="aba-visao-geral" class="tab-panel" aria-labelledby="titulo-visao-geral">
+
+      <h1 id="titulo-visao-geral" class="section-title">Dashboard Admin</h1>
+
+      <!-- Cards de estatísticas (alunos e professores) -->
+      <ul class="stats-grid" role="list">
+
+        <!-- Card: alunos -->
+        <li class="stat-card">
+          <figure class="stat-card__icon stat-card__icon--blue" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                 stroke="#50A0FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </figure>
+          <strong class="stat-card__value">45</strong>
+          <span class="stat-card__label">alunos</span>
+        </li>
+
+        <!-- Card: professores -->
+        <li class="stat-card">
+          <figure class="stat-card__icon stat-card__icon--pink" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                 stroke="#FF50A0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </figure>
+          <strong class="stat-card__value">12</strong>
+          <span class="stat-card__label">professores</span>
+        </li>
+
+      </ul>
+
+      <!-- Gráficos: Frequência Geral e Desempenho Geral -->
+      <section aria-labelledby="titulo-graficos">
+        <h2 id="titulo-graficos" class="section-title">Gráficos</h2>
+
+        <dl class="charts-grid">
+
+          <!-- Gráfico: Frequência Geral -->
+          <article class="chart-card">
+            <h3 class="chart-card__title">Frequência Geral</h3>
+            <ul class="bar-list" aria-label="Frequência por turma">
+
+              <li>
+                <p class="bar-item__label">Turma A</p>
+                <figure class="bar-track" aria-hidden="true">
+                  <span class="bar-fill bar-fill--blue" data-valor="82%" style="width:0%"></span>
+                </figure>
+                <!-- Valor legível para leitores de tela -->
+                <output>82%</output>
+              </li>
+
+              <li>
+                <p class="bar-item__label">Turma B</p>
+                <figure class="bar-track" aria-hidden="true">
+                  <span class="bar-fill bar-fill--blue" data-valor="67%" style="width:0%"></span>
+                </figure>
+                <output>67%</output>
+              </li>
+
+              <li>
+                <p class="bar-item__label">Turma C</p>
+                <figure class="bar-track" aria-hidden="true">
+                  <span class="bar-fill bar-fill--blue" data-valor="74%" style="width:0%"></span>
+                </figure>
+                <output>74%</output>
+              </li>
+
+            </ul>
+          </article>
+
+          <!-- Gráfico: Desempenho Geral -->
+          <article class="chart-card">
+            <h3 class="chart-card__title">Desempenho Geral</h3>
+            <ul class="bar-list" aria-label="Desempenho por turma">
+
+              <li>
+                <p class="bar-item__label">Turma A</p>
+                <figure class="bar-track" aria-hidden="true">
+                  <span class="bar-fill bar-fill--pink" data-valor="90%" style="width:0%"></span>
+                </figure>
+                <output>90%</output>
+              </li>
+
+              <li>
+                <p class="bar-item__label">Turma B</p>
+                <figure class="bar-track" aria-hidden="true">
+                  <span class="bar-fill bar-fill--pink" data-valor="55%" style="width:0%"></span>
+                </figure>
+                <output>55%</output>
+              </li>
+
+              <li>
+                <p class="bar-item__label">Turma C</p>
+                <figure class="bar-track" aria-hidden="true">
+                  <span class="bar-fill bar-fill--pink" data-valor="78%" style="width:0%"></span>
+                </figure>
+                <output>78%</output>
+              </li>
+
+            </ul>
+          </article>
+
+        </dl>
+      </section>
+
+    </section><!-- /aba-visao-geral -->
+
+
+    <!-- =================================================
+         ABA 2: GERENCIAR PROFESSORES
+         Tabela com Nome, Disciplina, Status e Ações
+         ================================================= -->
+    <section id="aba-professores" class="tab-panel" aria-labelledby="titulo-professores">
+
+      <header class="table-header">
+        <h2 id="titulo-professores" class="section-title" style="margin-bottom:0">
+          Gerenciar Professores
+        </h2>
+        <button class="btn-primary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <line x1="12" y1="5" x2="12" y2="19"/>
+            <line x1="5"  y1="12" x2="19" y2="12"/>
+          </svg>
+          Adicionar
+        </button>
+      </header>
+
+      <!-- figure envolve a tabela para aplicar border-radius -->
+      <figure class="table-wrap" aria-label="Lista de professores">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th scope="col">Nome</th>
+              <th scope="col">Disciplina</th>
+              <th scope="col">Status</th>
+              <th scope="col">Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Ana Lima</td>
+              <td>Engenharia de Software</td>
+              <td><span class="status status--ativo">Ativo</span></td>
+              <td>
+                <button class="btn-action">Editar</button>
+                <button class="btn-action btn-action--danger">Remover</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Carlos Mendes</td>
+              <td>Banco de Dados</td>
+              <td><span class="status status--ativo">Ativo</span></td>
+              <td>
+                <button class="btn-action">Editar</button>
+                <button class="btn-action btn-action--danger">Remover</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Fernanda Costa</td>
+              <td>Redes de Computadores</td>
+              <td><span class="status status--inativo">Inativo</span></td>
+              <td>
+                <button class="btn-action">Editar</button>
+                <button class="btn-action btn-action--danger">Remover</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Ricardo Souza</td>
+              <td>Segurança da Informação</td>
+              <td><span class="status status--ativo">Ativo</span></td>
+              <td>
+                <button class="btn-action">Editar</button>
+                <button class="btn-action btn-action--danger">Remover</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Juliana Rocha</td>
+              <td>Front-end</td>
+              <td><span class="status status--ativo">Ativo</span></td>
+              <td>
+                <button class="btn-action">Editar</button>
+                <button class="btn-action btn-action--danger">Remover</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Paulo Neves</td>
+              <td>Algoritmos</td>
+              <td><span class="status status--inativo">Inativo</span></td>
+              <td>
+                <button class="btn-action">Editar</button>
+                <button class="btn-action btn-action--danger">Remover</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
+
+    </section><!-- /aba-professores -->
+
+
+    <!-- =================================================
+         ABA 3: GERENCIAR ALUNOS
+         Tabela com Nome, Status e Ações
+         ================================================= -->
+    <section id="aba-alunos" class="tab-panel" aria-labelledby="titulo-alunos">
+
+      <header class="table-header">
+        <h2 id="titulo-alunos" class="section-title" style="margin-bottom:0">
+          Gerenciar Alunos
+        </h2>
+        <button class="btn-primary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <line x1="12" y1="5" x2="12" y2="19"/>
+            <line x1="5"  y1="12" x2="19" y2="12"/>
+          </svg>
+          Adicionar
+        </button>
+      </header>
+
+      <figure class="table-wrap" aria-label="Lista de alunos">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th scope="col">Nome</th>
+              <th scope="col">Curso</th>
+              <th scope="col">Módulo</th>
+              <th scope="col">Status</th>
+              <th scope="col">Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Bruno Alves</td>
+              <td>Eng. de Software</td>
+              <td>Módulo 03</td>
+              <td><span class="status status--ativo">Ativo</span></td>
+              <td>
+                <button class="btn-action">Editar</button>
+                <button class="btn-action btn-action--danger">Remover</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Camila Torres</td>
+              <td>Front-end</td>
+              <td>Módulo 01</td>
+              <td><span class="status status--ativo">Ativo</span></td>
+              <td>
+                <button class="btn-action">Editar</button>
+                <button class="btn-action btn-action--danger">Remover</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Diego Martins</td>
+              <td>Banco de Dados</td>
+              <td>Módulo 02</td>
+              <td><span class="status status--inativo">Inativo</span></td>
+              <td>
+                <button class="btn-action">Editar</button>
+                <button class="btn-action btn-action--danger">Remover</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Eloá Ferreira</td>
+              <td>Redes</td>
+              <td>Módulo 04</td>
+              <td><span class="status status--ativo">Ativo</span></td>
+              <td>
+                <button class="btn-action">Editar</button>
+                <button class="btn-action btn-action--danger">Remover</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Felipe Castro</td>
+              <td>Seg. da Informação</td>
+              <td>Módulo 01</td>
+              <td><span class="status status--ativo">Ativo</span></td>
+              <td>
+                <button class="btn-action">Editar</button>
+                <button class="btn-action btn-action--danger">Remover</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Gabriela Pinto</td>
+              <td>Algoritmos</td>
+              <td>Módulo 02</td>
+              <td><span class="status status--inativo">Inativo</span></td>
+              <td>
+                <button class="btn-action">Editar</button>
+                <button class="btn-action btn-action--danger">Remover</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
+
+    </section><!-- /aba-alunos -->
+
+
+  </main><!-- /main -->
+
+
+  <!-- Script da página (carregado ao final do body) -->
+  <script src="JS/dashboard-admin.js"></script>
+
+</body>
+</html>

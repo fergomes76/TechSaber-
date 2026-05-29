@@ -1,0 +1,405 @@
+/* ==========================================================
+   dashboard-professor.css
+   Estilos da página do professor – TechSaber+
+   ========================================================== */
+
+
+/* ----------------------------------------------------------
+   1. VARIÁVEIS DE TEMA
+   ---------------------------------------------------------- */
+:root {
+  --purple-card:   #3A2080;
+  --purple-accent: #5C2FC2;
+  --purple-border: rgba(255,255,255,0.12);
+
+  --text-primary:   #FFFFFF;
+  --text-secondary: rgba(255,255,255,0.60);
+  --text-muted:     rgba(255,255,255,0.35);
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --transition: 0.2s ease;
+}
+
+
+/* ----------------------------------------------------------
+   2. RESET + BASE
+   ---------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: linear-gradient(135deg, #1a0a2e 0%, #4a0e6e 50%, #7e22ce 100%);
+  background-attachment: fixed;
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* ----------------------------------------------------------
+   3. HEADER
+   ---------------------------------------------------------- */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 36px;
+  border-bottom: 1px solid var(--purple-border);
+  background: rgba(0,0,0,0.15);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.header__logo {
+  font-family: 'Sora', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 0.3px;
+}
+
+.header__greeting {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.header__greeting strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.btn-voltar {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--purple-border);
+  transition: background var(--transition), color var(--transition);
+}
+
+.btn-voltar:hover {
+  background: rgba(255,255,255,0.08);
+  color: var(--text-primary);
+}
+
+
+/* ----------------------------------------------------------
+   4. CONTEÚDO PRINCIPAL
+   ---------------------------------------------------------- */
+.main {
+  flex: 1;
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 40px 24px 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+
+/* ----------------------------------------------------------
+   5. TÍTULO DE SEÇÃO
+   ---------------------------------------------------------- */
+.section-title {
+  font-family: 'Sora', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+
+/* ----------------------------------------------------------
+   6. CARD "ADICIONAR ATIVIDADE"
+   ---------------------------------------------------------- */
+.add-card {
+  background: rgba(255,255,255,0.07);
+  border: 2px dashed rgba(255,255,255,0.22);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 52px 24px;
+  cursor: pointer;
+  width: 100%;
+  color: inherit;
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.add-card:hover,
+.add-card:focus-visible {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.40);
+  outline: none;
+}
+
+.add-card__icon {
+  width: 56px;
+  height: 56px;
+  background: rgba(255,255,255,0.10);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+.add-card__label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+
+/* ----------------------------------------------------------
+   7. CABEÇALHO "ATIVIDADES ANTERIORES"
+   ---------------------------------------------------------- */
+.prev-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.prev-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+
+/* ----------------------------------------------------------
+   8. BOTÕES
+   ---------------------------------------------------------- */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--purple-accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 10px 22px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition), transform 0.15s;
+}
+
+.btn-primary:hover {
+  background: #7047D6;
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid var(--purple-border);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  padding: 6px 16px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+}
+
+.btn-ghost:hover {
+  background: rgba(255,255,255,0.08);
+  color: var(--text-primary);
+}
+
+.btn-action {
+  background: var(--purple-accent);
+  border: none;
+  border-radius: var(--radius-sm);
+  color: #fff;
+  padding: 5px 14px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.btn-action:hover {
+  background: #7047D6;
+}
+
+
+/* ----------------------------------------------------------
+   9. TABELA DE ATIVIDADES
+   ---------------------------------------------------------- */
+.table-wrap {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--purple-border);
+  margin: 0;
+}
+
+.activities-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255,255,255,0.04);
+}
+
+.activities-table thead {
+  background: rgba(255,255,255,0.07);
+}
+
+.activities-table thead th {
+  padding: 12px 16px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.activities-table tbody tr {
+  border-top: 1px solid var(--purple-border);
+  transition: background var(--transition);
+}
+
+.activities-table tbody tr:hover {
+  background: rgba(255,255,255,0.05);
+}
+
+.activities-table tbody td {
+  padding: 13px 16px;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+
+/* ----------------------------------------------------------
+   10. BADGES DE STATUS
+   ---------------------------------------------------------- */
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.badge--active  { background: rgba(100,220,140,0.15); color: #6DDCA0; }
+.badge--done    { background: rgba(140,140,255,0.15); color: #A0A0FF; }
+.badge--pending { background: rgba(255,195,80,0.15);  color: #FFC350; }
+
+
+/* ----------------------------------------------------------
+   11. MODAL
+   ---------------------------------------------------------- */
+.modal {
+  background: #1a0a2e;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  color: var(--text-primary);
+  width: min(520px, 90vw);
+  font-family: 'DM Sans', sans-serif;
+  margin: auto;
+}
+
+.modal::backdrop {
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(3px);
+}
+
+.field select option {
+  background: #ffffff;
+  color: #1a1a1a;
+}
+
+.modal__title {
+  font-family: 'Sora', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 22px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.field label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.field input,
+.field select,
+.field textarea {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  color: var(--text-primary);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.875rem;
+  outline: none;
+  transition: border-color var(--transition);
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: var(--purple-accent);
+}
+
+.field textarea {
+  resize: vertical;
+}
+
+.modal__actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+
+/* ----------------------------------------------------------
+   12. RESPONSIVIDADE
+   ---------------------------------------------------------- */
+@media (max-width: 600px) {
+  .header {
+    padding: 16px 18px;
+  }
+
+  .main {
+    padding: 28px 16px 48px;
+  }
+
+  .activities-table th:nth-child(3),
+  .activities-table td:nth-child(3) {
+    display: none;
+  }
+}

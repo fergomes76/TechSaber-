@@ -1,0 +1,451 @@
+/* ==========================================================
+   dashboard-admin.css
+   Estilos da página do administrador – TechSaber+
+   ========================================================== */
+
+
+/* ----------------------------------------------------------
+   1. VARIÁVEIS DE TEMA (mesma paleta do projeto)
+   ---------------------------------------------------------- */
+:root {
+  --purple-card:   #3A2080;
+  --purple-accent: #5C2FC2;
+  --purple-border: rgba(255,255,255,0.12);
+
+  --text-primary:   #FFFFFF;
+  --text-secondary: rgba(255,255,255,0.60);
+  --text-muted:     rgba(255,255,255,0.35);
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --transition: 0.2s ease;
+}
+
+
+/* ----------------------------------------------------------
+   2. RESET + BASE
+   ---------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: linear-gradient(135deg, #1a0a2e 0%, #4a0e6e 50%, #7e22ce 100%);
+  background-attachment: fixed;
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* ----------------------------------------------------------
+   3. HEADER
+   ---------------------------------------------------------- */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 36px;
+  border-bottom: 1px solid var(--purple-border);
+  background: rgba(0,0,0,0.15);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.header__logo {
+  font-family: 'Sora', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 0.3px;
+}
+
+.header__greeting {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.header__greeting strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* Botão voltar */
+.btn-voltar {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--purple-border);
+  transition: background var(--transition), color var(--transition);
+}
+
+.btn-voltar:hover {
+  background: rgba(255,255,255,0.08);
+  color: var(--text-primary);
+}
+
+
+/* ----------------------------------------------------------
+   4. NAVEGAÇÃO POR ABAS
+   ---------------------------------------------------------- */
+.tabs {
+  display: flex;
+  gap: 4px;
+  padding: 16px 36px 0;
+  border-bottom: 1px solid var(--purple-border);
+  background: rgba(0,0,0,0.10);
+}
+
+.tab-btn {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 10px 20px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: color var(--transition), border-color var(--transition);
+  margin-bottom: -1px;
+}
+
+.tab-btn:hover {
+  color: var(--text-primary);
+}
+
+.tab-btn[aria-selected="true"] {
+  color: var(--text-primary);
+  border-bottom-color: var(--purple-accent);
+  font-weight: 600;
+}
+
+
+/* ----------------------------------------------------------
+   5. CONTEÚDO PRINCIPAL
+   ---------------------------------------------------------- */
+.main {
+  flex: 1;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 40px 24px 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.tab-panel {
+  display: none;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.tab-panel.active {
+  display: flex;
+}
+
+
+/* ----------------------------------------------------------
+   6. TÍTULO DE SEÇÃO
+   ---------------------------------------------------------- */
+.section-title {
+  font-family: 'Sora', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+}
+
+
+/* ----------------------------------------------------------
+   7. CARDS DE ESTATÍSTICAS
+   ---------------------------------------------------------- */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.stat-card {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid var(--purple-border);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  transition: background var(--transition);
+}
+
+.stat-card:hover {
+  background: rgba(255,255,255,0.11);
+}
+
+.stat-card__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+.stat-card__icon--blue  { background: rgba(80, 160, 255, 0.18); }
+.stat-card__icon--pink  { background: rgba(255, 80, 160, 0.18); }
+
+.stat-card__value {
+  font-family: 'Sora', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.stat-card__label {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+
+/* ----------------------------------------------------------
+   8. GRÁFICOS
+   ---------------------------------------------------------- */
+.charts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.chart-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--purple-border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+}
+
+.chart-card__title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 16px;
+}
+
+.bar-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+}
+
+.bar-item__label {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+
+.bar-track {
+  height: 8px;
+  background: rgba(255,255,255,0.10);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--purple-accent);
+  transition: width 0.6s ease;
+}
+
+.bar-fill--blue { background: #50A0FF; }
+.bar-fill--pink { background: #FF50A0; }
+
+
+/* ----------------------------------------------------------
+   9. CABEÇALHO DAS SEÇÕES DE TABELA
+   ---------------------------------------------------------- */
+.table-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+
+/* ----------------------------------------------------------
+   10. TABELAS
+   ---------------------------------------------------------- */
+.table-wrap {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--purple-border);
+  margin: 0;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255,255,255,0.04);
+}
+
+.data-table thead {
+  background: rgba(255,255,255,0.07);
+}
+
+.data-table thead th {
+  padding: 12px 16px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.data-table tbody tr {
+  border-top: 1px solid var(--purple-border);
+  transition: background var(--transition);
+}
+
+.data-table tbody tr:hover {
+  background: rgba(255,255,255,0.05);
+}
+
+.data-table tbody td {
+  padding: 13px 16px;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+
+/* ----------------------------------------------------------
+   11. STATUS
+   ---------------------------------------------------------- */
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.status::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.status--ativo  { color: #6DDCA0; }
+.status--ativo::before  { background: #6DDCA0; }
+
+.status--inativo { color: #FF7070; }
+.status--inativo::before { background: #FF7070; }
+
+
+/* ----------------------------------------------------------
+   12. BOTÕES
+   ---------------------------------------------------------- */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--purple-accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 10px 22px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition), transform 0.15s;
+}
+
+.btn-primary:hover {
+  background: #7047D6;
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid var(--purple-border);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  padding: 6px 14px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+}
+
+.btn-ghost:hover {
+  background: rgba(255,255,255,0.08);
+  color: var(--text-primary);
+}
+
+.btn-action {
+  background: var(--purple-accent);
+  border: none;
+  border-radius: var(--radius-sm);
+  color: #fff;
+  padding: 5px 12px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition);
+  margin-right: 4px;
+}
+
+.btn-action:hover { background: #7047D6; }
+
+.btn-action--danger {
+  background: rgba(255, 80, 80, 0.25);
+  color: #FF9090;
+}
+
+.btn-action--danger:hover { background: rgba(255, 80, 80, 0.40); }
+
+
+/* ----------------------------------------------------------
+   13. RESPONSIVIDADE
+   ---------------------------------------------------------- */
+@media (max-width: 700px) {
+  .header  { padding: 16px 18px; }
+  .tabs    { padding: 12px 18px 0; }
+  .main    { padding: 24px 16px 48px; }
+
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .data-table th:nth-child(2),
+  .data-table td:nth-child(2) {
+    display: none;
+  }
+}

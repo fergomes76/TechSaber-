@@ -54,6 +54,11 @@ function fazerLogin() {
     if (email === usuario.email && senha === usuario.senha) {
         sucesso.style.display = "block";
 
+        /* limpa todo o progresso das trilhas */
+        Object.keys(localStorage)
+            .filter(k => k.startsWith('progresso-') || k.startsWith('concluido-'))
+            .forEach(k => localStorage.removeItem(k));
+
         /* redireciona para o dashboard correto após 1 segundo */
         setTimeout(() => {
             if (perfilSelecionado === "aluno")     window.location.href = "dashboard-aluno.html";

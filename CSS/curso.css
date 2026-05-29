@@ -1,0 +1,207 @@
+/* CURSO CSS - TechSaber+
+   Estilos da trilha individual de cada curso */
+
+/* ── LAYOUT PRINCIPAL ── */
+.curso-main {
+    padding: 2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* ── TÍTULO DO CURSO ── */
+.curso-titulo h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: var(--fonte-grande);
+    text-align: center;
+}
+
+/* ── TRILHA VERTICAL ── */
+.trilha-vertical {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+    position: relative;
+}
+
+/* linha central vertical */
+.trilha-vertical::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    background: var(--card-borda);
+    z-index: 0;
+}
+
+/* ── ITEM DE ATIVIDADE ── */
+.atividade-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 1rem;
+    padding: 1rem 0;
+    position: relative;
+    z-index: 1;
+}
+
+/* atividade no lado esquerdo */
+.atividade-item.esquerda {
+    flex-direction: row;
+    justify-content: flex-end;
+    padding-right: calc(50% + 1.5rem);
+}
+
+/* atividade no lado direito */
+.atividade-item.direita {
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-left: calc(50% + 1.5rem);
+}
+
+/* ── CONTEÚDO DA ATIVIDADE ── */
+.atividade-conteudo {
+    max-width: 250px;
+    padding: 1rem;
+    width: 100%;
+}
+
+.atividade-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.3rem;
+}
+
+.atividade-header h2 {
+    font-size: var(--fonte-pequena);
+    font-weight: 600;
+}
+
+.atividade-conteudo p {
+    font-size: var(--fonte-pequena);
+    color: var(--texto-suave);
+}
+
+/* ── PONTO DA TRILHA ── */
+.atividade-ponto {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    border: 2px solid var(--card-borda);
+    background: var(--card-fundo);
+    z-index: 2;
+}
+
+.concluido-ponto {
+    background: var(--cor-primaria);
+    border-color: var(--cor-primaria);
+    color: white;
+}
+
+.andamento-ponto {
+    background: var(--cor-destaque);
+    border-color: var(--cor-destaque);
+    width: 54px;
+    height: 54px;
+    font-size: 1.4rem;
+}
+
+.bloqueado-ponto {
+    opacity: 0.4;
+}
+
+/* ── CARD EM ANDAMENTO ── */
+.andamento-card {
+    border-color: var(--cor-destaque);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.badge-status {
+    font-size: 0.6rem;
+    color: var(--texto-suave);
+    letter-spacing: 1px;
+}
+
+.badge-andamento-tag {
+    background: var(--cor-destaque);
+    color: white;
+    font-size: 0.6rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.andamento-card h2 {
+    font-size: var(--fonte-normal);
+    font-weight: 700;
+}
+
+.andamento-card button {
+    width: 100%;
+    padding: 0.6rem;
+    font-size: var(--fonte-pequena);
+}
+
+/* ── CARD BLOQUEADO ── */
+.bloqueado-card {
+    opacity: 0.5;
+}
+
+/* ── MÓDULO CONCLUÍDO ── */
+.modulo-concluido {
+    text-align: center;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.modulo-icone {
+    font-size: 3rem;
+}
+
+.modulo-concluido p {
+    font-size: var(--fonte-pequena);
+    color: var(--texto-suave);
+}
+
+/* ══ RESPONSIVO ══ */
+@media (max-width: 600px) {
+    .trilha-vertical::before {
+        left: 20px; /* linha vai para a esquerda no celular */
+    }
+
+    .atividade-item.esquerda,
+    .atividade-item.direita {
+        flex-direction: column;
+        padding: 0.5rem 0 0.5rem 3.5rem; /* espaço para o ponto */
+        justify-content: flex-start;
+    }
+
+    .atividade-ponto {
+        left: 20px;
+    }
+
+    .atividade-conteudo {
+        max-width: 100%;
+    }
+}

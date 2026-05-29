@@ -39,32 +39,32 @@
 
             <ul class="categorias-grid">
 
-                <li class="card categoria-card" onclick="window.location.href='curso.html'">
+                <li class="card categoria-card" onclick="window.location.href='curso.html?curso=Front-End'">
                     <span class="categoria-icone">💻</span>
                     <p>Front End</p>
                 </li>
 
-                <li class="card categoria-card" onclick="window.location.href='curso.html'">
+                <li class="card categoria-card" onclick="window.location.href='curso.html?curso=Back-End'">
                     <span class="categoria-icone">🖥️</span>
                     <p>Back End</p>
                 </li>
 
-                <li class="card categoria-card" onclick="window.location.href='curso.html'">
+                <li class="card categoria-card" onclick="window.location.href='curso.html?curso=Banco-de-Dados'">
                     <span class="categoria-icone">☁️</span>
                     <p>Banco de Dados (IA)</p>
                 </li>
 
-                <li class="card categoria-card" onclick="window.location.href='curso.html'">
+                <li class="card categoria-card" onclick="window.location.href='curso.html?curso=Engenharia-de-Software'">
                     <span class="categoria-icone">⚙️</span>
                     <p>Engenharia de Software</p>
                 </li>
 
-                <li class="card categoria-card" onclick="window.location.href='curso.html'">
+                <li class="card categoria-card" onclick="window.location.href='curso.html?curso=Soft-Skills'">
                     <span class="categoria-icone">🤝</span>
                     <p>Soft Skills</p>
                 </li>
 
-                <li class="card categoria-card" onclick="window.location.href='curso.html'">
+                <li class="card categoria-card" onclick="window.location.href='curso.html?curso=Acessibilidade-Libras'">
                     <span class="categoria-icone">🖐️</span>
                     <p>Acessibilidade (Libras)</p>
                 </li>
@@ -75,22 +75,23 @@
     </main>
 
     <script src="js/main.js"></script>
-    <script>
-    /* filtra os cards ao digitar na busca */
-    document.getElementById("busca").addEventListener("input", function() {
-        const termo = this.value.toLowerCase();
-        const cards = document.querySelectorAll(".categoria-card");
 
-        cards.forEach(card => {
-            const nome = card.querySelector("p").textContent.toLowerCase();
-            if (nome.includes(termo)) {
-                card.style.display = "flex"; /* mostra */
-            } else {
-                card.style.display = "none"; /* esconde */
-            }
+    <script>
+        /* filtra os cards ao digitar na busca */
+        document.getElementById("busca").addEventListener("input", function() {
+            const termo = this.value.toLowerCase();
+            const cards = document.querySelectorAll(".categoria-card");
+
+            cards.forEach(card => {
+                const nome = card.querySelector("p").textContent.toLowerCase();
+                if (nome.includes(termo)) {
+                    card.style.display = "flex";
+                } else {
+                    card.style.display = "none";
+                }
+            });
         });
-    });
-</script>
+    </script>
 
 </body>
 </html>

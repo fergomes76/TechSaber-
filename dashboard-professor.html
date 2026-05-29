@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechSaber+ – Painel do Professor</title>
+ 
+  <!-- Fonts: Sora (títulos) + DM Sans (corpo) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+ 
+  <!-- Estilos da página -->
+  <link rel="stylesheet" href="CSS/dashboard-professor.css" />
+</head>
+ 
+<body>
+ 
+  <!-- =====================================================
+       HEADER – logo + saudação ao professor
+       ===================================================== -->
+  <header class="header">
+    <!-- Botão voltar (leva de volta ao login ou página anterior) -->
+    <a href="login.html" class="btn-voltar" aria-label="Voltar para o login">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6"/>
+      </svg>
+      Voltar
+    </a>
+ 
+    <span class="nav-logo"><strong>🎓 TechSaber+</strong></span></a>
+      <div class="nav-botoes">
+    <p class="header__greeting">Bem-vindo, <strong>Professor</strong> 👋</p>
+  </header>
+ 
+ 
+  <!-- =====================================================
+       CONTEÚDO PRINCIPAL
+       ===================================================== -->
+  <main class="main">
+ 
+    <!-- -------------------------------------------------
+         SEÇÃO: LIÇÕES
+         Título centralizado + card de adicionar atividade
+         ------------------------------------------------- -->
+    <section aria-labelledby="licoes-titulo">
+ 
+      <h1 id="licoes-titulo" class="section-title">Lições</h1>
+ 
+      <!-- Card de adicionar atividade (botão acessível) -->
+      <button
+        class="add-card"
+        onclick="abrirModal()"
+        aria-label="Adicionar nova atividade"
+      >
+        <!-- Ícone de arquivo com + -->
+        <figure class="add-card__icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+               stroke="rgba(255,255,255,0.65)" stroke-width="1.8"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="12" y1="11" x2="12" y2="17"/>
+            <line x1="9"  y1="14" x2="15" y2="14"/>
+          </svg>
+        </figure>
+ 
+        <span class="add-card__label">Adicionar Atividade</span>
+      </button>
+ 
+    </section>
+ 
+ 
+    <!-- -------------------------------------------------
+         SEÇÃO: ATIVIDADES ANTERIORES
+         Tabela com nome, turma, data, status e ações
+         ------------------------------------------------- -->
+    <section aria-labelledby="prev-titulo">
+ 
+      <header class="prev-header">
+        <h2 id="prev-titulo" class="prev-title">Atividades Anteriores</h2>
+        <button class="btn-ghost" aria-label="Editar atividades">Editar</button>
+      </header>
+ 
+      <!-- figure envolve a tabela para aplicar border-radius -->
+      <figure class="table-wrap" aria-label="Lista de atividades anteriores">
+        <table class="activities-table">
+          <thead>
+            <tr>
+              <th scope="col">Nome</th>
+              <th scope="col">Turma</th>
+              <th scope="col">Data</th>
+              <th scope="col">Status</th>
+              <th scope="col">Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Introdução a Algoritmos</td>
+              <td>Turma A</td>
+              <td>15/05/2026</td>
+              <td><span class="badge badge--active">Ativo</span></td>
+              <td><button class="btn-action">Acesse</button></td>
+            </tr>
+            <tr>
+              <td>Estruturas de Dados</td>
+              <td>Turma B</td>
+              <td>10/05/2026</td>
+              <td><span class="badge badge--done">Concluída</span></td>
+              <td><button class="btn-action">Acesse</button></td>
+            </tr>
+            <tr>
+              <td>HTML &amp; CSS Básico</td>
+              <td>Turma C</td>
+              <td>05/05/2026</td>
+              <td><span class="badge badge--done">Concluída</span></td>
+              <td><button class="btn-action">Acesse</button></td>
+            </tr>
+            <tr>
+              <td>JavaScript Avançado</td>
+              <td>Turma A</td>
+              <td>20/05/2026</td>
+              <td><span class="badge badge--pending">Inativo</span></td>
+              <td><button class="btn-action">Acesse</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
+ 
+    </section>
+ 
+  </main>
+ 
+ 
+  <!-- =====================================================
+       MODAL – Adicionar Atividade
+       Usa o elemento nativo <dialog> (sem JS extra para abrir/fechar)
+       ===================================================== -->
+  <dialog id="modal-add" class="modal" aria-labelledby="modal-titulo">
+ 
+    <h2 id="modal-titulo" class="modal__title">Nova Atividade</h2>
+ 
+    <form id="form-atividade">
+ 
+      <!-- Campo: título -->
+      <p class="field">
+        <label for="input-titulo">Título da Atividade</label>
+        <input id="input-titulo" type="text" placeholder="Ex: Avaliação de Engenharia" required />
+      </p>
+ 
+      <!-- Campo: turma -->
+      <p class="field">
+        <label for="input-turma">Turma</label>
+        <select id="input-turma">
+          <option value="">Selecione uma turma</option>
+          <option>Turma A</option>
+          <option>Turma B</option>
+          <option>Turma C</option>
+        </select>
+      </p>
+ 
+      <!-- Campo: descrição -->
+      <p class="field">
+        <label for="input-desc">Descrição</label>
+        <textarea id="input-desc" rows="3" placeholder="Descreva brevemente a atividade..."></textarea>
+      </p>
+ 
+      <!-- Botões de ação -->
+      <footer class="modal__actions">
+        <button type="button" class="btn-ghost" onclick="fecharModal()">Cancelar</button>
+        <button type="submit" class="btn-primary">Publicar</button>
+      </footer>
+ 
+    </form>
+ 
+  </dialog>
+ 
+ 
+  <!-- Script da página (carregado ao final do body) -->
+  <script src="JS/dashboard-professor.js"></script>
+ 
+</body>
+</html>
+ 

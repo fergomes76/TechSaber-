@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechSaber+ | Artigo</title>
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/artigo.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ══ NAVBAR ══ -->
+    <header>
+        <nav>
+            <span class="nav-logo">🎓 TechSaber+</span>
+            <span style="display:flex; gap:0.5rem;">
+                <button class="btn-primario" onclick="history.back()">Voltar</button>
+                <a href="dashboard-aluno.html"><button class="btn-destaque" style="width:auto;">Sair</button></a>
+            </span>
+        </nav>
+    </header>
+
+    <main class="artigo-main">
+
+        <!-- cabeçalho do artigo preenchido pelo JS -->
+        <header class="artigo-header">
+            <p class="artigo-modulo" id="artigo-modulo"></p>
+            <h1 id="artigo-titulo"></h1>
+        </header>
+
+        <!-- conteúdo do artigo preenchido pelo JS -->
+        <article class="artigo-conteudo card" id="artigo-conteudo"></article>
+
+        <!-- botão que leva para o próximo passo da trilha -->
+        <section class="artigo-botao">
+            <a id="btn-proximo" href="#">
+                <button class="btn-destaque btn-block" id="btn-proximo-texto">Continuar →</button>
+            </a>
+        </section>
+
+    </main>
+
+    <script>
+        /* ══════════════════════════════════════════
+           CONTEÚDO DOS ARTIGOS
+           Cada curso tem artigo1 e artigo2
+           O parâmetro "etapa" na URL define qual mostrar
+           etapa=1 → artigo 1
+           etapa=2 → artigo 2
+        ══════════════════════════════════════════ */
+        const conteudos = {
+            "Front-End": {
+                artigo1: {
+                    modulo: "Módulo 1: HTML5 e Semântica",
+                    titulo: "HTML Semântico",
+                    conteudo: `
+                        <h2>O que é HTML Semântico?</h2>
+                        <p>O <strong>HTML</strong> (HyperText Markup Language) é a linguagem de marcação usada para estruturar o conteúdo na web. Tags semânticas descrevem o significado do conteúdo, o que é fundamental para <strong>SEO</strong> e acessibilidade.</p>
+                        <p>Tags semânticas principais: <code>&lt;header&gt;</code> para cabeçalho, <code>&lt;nav&gt;</code> para navegação, <code>&lt;main&gt;</code> para conteúdo principal, <code>&lt;section&gt;</code> para seções, <code>&lt;article&gt;</code> para conteúdo independente, <code>&lt;aside&gt;</code> para conteúdo lateral e <code>&lt;footer&gt;</code> para rodapé.</p>
+                        <h2>DOM e Estrutura</h2>
+                        <p>O <strong>DOM</strong> (Document Object Model) é a representação em árvore da estrutura da página HTML. O atributo <code>lang</code> na tag <code>&lt;html&gt;</code> define o idioma do documento — essencial para acessibilidade.</p>
+                        <p>O <strong>DOCTYPE</strong> instrui o navegador sobre qual versão do HTML usar. A diferença entre <code>&lt;b&gt;</code> e <code>&lt;strong&gt;</code>: <code>&lt;strong&gt;</code> tem peso semântico de importância, enquanto <code>&lt;b&gt;</code> é apenas visual. Elementos <strong>inline</strong> ocupam apenas a largura necessária (ex: <code>&lt;span&gt;</code>).</p>
+                    `
+                },
+                artigo2: {
+                    modulo: "Módulo 2: CSS3 e Estilização",
+                    titulo: "CSS3 e Estilização",
+                    conteudo: `
+                        <h2>O que é CSS?</h2>
+                        <p>O <strong>CSS</strong> (Cascading Style Sheets) controla a apresentação visual das páginas web. Ele utiliza seletores para aplicar estilos como cores, fontes, espaçamentos e layouts. O conceito de <strong>cascata</strong> permite que estilos sejam herdados ou sobrescritos com base na especificidade.</p>
+                        <p>Para selecionar uma <strong>classe</strong> usa-se <code>.nome</code>. Para selecionar um <strong>ID</strong> usa-se <code>#nome</code>. A propriedade <code>background-color</code> define a cor de fundo. A propriedade <code>font-size</code> define o tamanho da letra.</p>
+                        <h2>Box Model, Flexbox e Grid</h2>
+                        <p>O <strong>Box Model</strong> define que cada elemento tem: <code>margin</code> (espaço externo), <code>border</code> (borda), <code>padding</code> (espaço interno) e <code>content</code> (conteúdo). <strong>Margin</strong> é espaço externo, <strong>padding</strong> é espaço interno.</p>
+                        <p>O <strong>Flexbox</strong> cria layouts unidimensionais flexíveis e responsivos. O <strong>CSS Grid</strong> cria layouts bidimensionais complexos em linhas e colunas. As <strong>Media Queries</strong> aplicam estilos diferentes conforme o tamanho da tela. O <code>z-index</code> controla a ordem de empilhamento dos elementos. A pseudoclasse <code>:hover</code> aplica estilos quando o usuário passa o mouse.</p>
+                    `
+                }
+            },
+            "Back-End": {
+                artigo1: {
+                    modulo: "Módulo 1: C# e .NET",
+                    titulo: "C# e .NET — Fundamentos",
+                    conteudo: `
+                        <h2>C# e o Ecossistema .NET</h2>
+                        <p>O <strong>C#</strong> é uma linguagem moderna, orientada a objetos e segura para tipos. Ela roda no <strong>.NET</strong>, um ecossistema que fornece o <strong>CLR</strong> (Common Language Runtime) para gerenciar memória e execução.</p>
+                        <p>Variáveis em C# devem ser declaradas com tipos específicos como <code>int</code> (números inteiros), <code>string</code> (texto) e <code>bool</code> (verdadeiro/falso). Ao atribuir texto a uma variável <code>int</code>, ocorre um <strong>erro de compilação</strong>. O <strong>SDK do .NET</strong> fornece ferramentas para desenvolver e rodar aplicações.</p>
+                        <h2>CLR, JIT e Garbage Collector</h2>
+                        <p>O <strong>CLR</strong> é o ambiente de execução que gerencia o código. O <strong>JIT</strong> (Just-In-Time) compila código IL para código de máquina em tempo de execução. O código gerenciado pelo CLR é chamado de <strong>Managed Code</strong>.</p>
+                        <p>O <strong>Garbage Collector</strong> é o sistema automático de gerenciamento de memória do .NET — ele limpa objetos que não são mais usados. A diferença entre <code>struct</code> e <code>class</code>: <strong>struct</strong> é tipo de valor, <strong>class</strong> é tipo de referência.</p>
+                    `
+                },
+                artigo2: {
+                    modulo: "Módulo 2: POO em C#",
+                    titulo: "Programação Orientada a Objetos em C#",
+                    conteudo: `
+                        <h2>Interfaces, Namespaces e Static</h2>
+                        <p>A palavra-chave <code>using</code> no topo do arquivo serve para <strong>importar namespaces</strong>. Uma <strong>Interface</strong> em C# é um contrato que define métodos sem implementação — as classes que a implementam devem fornecer os métodos.</p>
+                        <p>O modificador <strong>static</strong> faz com que um membro pertença à classe em si, não a uma instância específica. O bloco <strong>try-catch</strong> serve para tratamento de exceções e erros — o código em <code>try</code> é executado e, se houver erro, o bloco <code>catch</code> o captura.</p>
+                        <h2>LINQ e Programação Assíncrona</h2>
+                        <p>O <strong>LINQ</strong> (Language Integrated Query) é uma linguagem de consulta integrada para coleções de dados — permite filtrar, ordenar e transformar listas de forma elegante diretamente no C#.</p>
+                        <p>A <strong>programação assíncrona</strong> com <code>async/await</code> melhora a responsividade das aplicações evitando o bloqueio da thread principal. Isso é fundamental para operações que demoram, como chamadas a APIs e leitura de arquivos.</p>
+                    `
+                }
+            },
+            "Banco-de-Dados": {
+                artigo1: {
+                    modulo: "Módulo 1: SQL Básico",
+                    titulo: "SQL e Estruturas Relacionais",
+                    conteudo: `
+                        <h2>Bancos de Dados Relacionais</h2>
+                        <p>Bancos de dados relacionais organizam dados em <strong>tabelas</strong> com colunas e linhas. O <strong>SQL</strong> (Structured Query Language) é a linguagem usada para gerenciar esses dados através de chaves primárias e estrangeiras, garantindo integridade e eficiência.</p>
+                        <p>A <strong>Chave Primária (PK)</strong> é um identificador exclusivo para cada registro na tabela. A <strong>Chave Estrangeira (FK)</strong> cria um vínculo entre duas tabelas. O comando <code>SELECT</code> busca dados. O comando <code>WHERE</code> filtra os resultados com base em uma condição.</p>
+                        <h2>Comandos Essenciais</h2>
+                        <p>O comando <strong>JOIN</strong> combina dados de duas ou mais tabelas relacionadas. O comando <strong>UPDATE</strong> modifica dados já existentes. O comando <strong>DELETE</strong> remove registros. O comando <strong>ORDER BY</strong> ordena os resultados de forma ascendente ou descendente.</p>
+                        <p>A <strong>Normalização</strong> é o processo de organização para reduzir redundâncias no banco de dados — garante que cada informação seja armazenada em apenas um lugar.</p>
+                    `
+                },
+                artigo2: {
+                    modulo: "Módulo 2: SQL Avançado",
+                    titulo: "SQL Avançado e Boas Práticas",
+                    conteudo: `
+                        <h2>Conceitos Avançados</h2>
+                        <p>As propriedades <strong>ACID</strong> garantem confiabilidade em transações de banco de dados: <strong>A</strong>tomicidade, <strong>C</strong>onsistência, <strong>I</strong>solamento e <strong>D</strong>urabilidade. A diferença entre <strong>SQL</strong> e <strong>NoSQL</strong>: SQL é relacional e estruturado; NoSQL é flexível e não-relacional.</p>
+                        <p>O comando <strong>GROUP BY</strong> agrupa linhas que têm os mesmos valores em colunas específicas. Um <strong>Data Warehouse</strong> é um sistema de armazenamento de dados consolidado para análise. O valor <strong>NULL</strong> representa a ausência de valor ou dado desconhecido.</p>
+                        <h2>Views e Consultas Complexas</h2>
+                        <p>Uma <strong>View</strong> é uma "tabela virtual" baseada no resultado de uma consulta SQL — simplifica consultas complexas e protege dados sensíveis. O comando <strong>GROUP BY</strong> é usado junto com funções de agregação como <code>COUNT</code>, <code>SUM</code> e <code>AVG</code>.</p>
+                        <p>Boas práticas de banco de dados incluem: usar índices para melhorar a performance das consultas, evitar valores NULL quando possível, e sempre fazer backup antes de operações de <code>DELETE</code> ou <code>UPDATE</code> em massa.</p>
+                    `
+                }
+            },
+            "Engenharia-de-Software": {
+                artigo1: {
+                    modulo: "Módulo 1: Manifesto Ágil e Scrum",
+                    titulo: "Manifesto Ágil e Scrum",
+                    conteudo: `
+                        <h2>O Manifesto Ágil</h2>
+                        <p>A Engenharia de Software aplica princípios de engenharia no desenvolvimento de sistemas. O <strong>Manifesto Ágil</strong> é um documento que prioriza pessoas e entregas sobre processos rígidos — foi criado em 2001 e revolucionou o desenvolvimento de software.</p>
+                        <p>O <strong>Scrum</strong> é uma das metodologias ágeis mais populares, focada em ciclos de entrega curtos chamados <strong>Sprints</strong>, com duração de <strong>1 a 4 semanas</strong>. O <strong>Product Owner (PO)</strong> é responsável por priorizar o Backlog. O <strong>Scrum Master</strong> facilita o processo e remove obstáculos do time.</p>
+                        <h2>Cerimônias e Artefatos</h2>
+                        <p>O <strong>Product Backlog</strong> é a lista ordenada de tudo que é necessário para o produto final. O <strong>Sprint Backlog</strong> é o conjunto de tarefas selecionadas para a Sprint atual. A <strong>Daily</strong> é a reunião diária com objetivo de alinhamento e identificação de bloqueios.</p>
+                        <p>A <strong>Sprint Review</strong> apresenta o trabalho concluído ao cliente. A <strong>Retrospectiva</strong> analisa o processo da Sprint para melhorias contínuas. Esses rituais garantem transparência e colaboração constante entre o time e o cliente.</p>
+                    `
+                },
+                artigo2: {
+                    modulo: "Módulo 2: Práticas Avançadas",
+                    titulo: "Práticas Avançadas de Engenharia de Software",
+                    conteudo: `
+                        <h2>Qualidade e Testes</h2>
+                        <p>A <strong>Dívida Técnica</strong> é o custo futuro de refatoração por escolhas de design rápidas e fáceis. A <strong>Refatoração</strong> significa melhorar a estrutura do código sem alterar seu comportamento externo — é fundamental para manter o código limpo.</p>
+                        <p>A <strong>Integração Contínua (CI)</strong> é a prática de mesclar código em um repositório compartilhado várias vezes ao dia. A <strong>Regra de Pareto em testes</strong> diz que aproximadamente 80% dos defeitos estão concentrados em 20% dos módulos. O <strong>Teste Unitário</strong> testa partes isoladas; o <strong>Teste de Integração</strong> testa o conjunto.</p>
+                        <h2>Arquitetura e UML</h2>
+                        <p>O <strong>MVP</strong> (Minimum Viable Product) é a versão mais simples de um produto para validação de mercado. Os <strong>Microserviços</strong> são uma arquitetura de serviços pequenos e independentes que se comunicam entre si.</p>
+                        <p>O <strong>Diagrama de Sequência</strong> no UML mostra a ordem de interações entre objetos no tempo. O <strong>Diagrama de Casos de Uso</strong> representa as funcionalidades do sistema e os atores que as utilizam. Esses diagramas são fundamentais para comunicar a arquitetura do sistema.</p>
+                    `
+                }
+            },
+            "Soft-Skills": {
+                artigo1: {
+                    modulo: "Módulo 1: Comunicação",
+                    titulo: "Comunicação e Trabalho em Equipe",
+                    conteudo: `
+                        <h2>Comunicação Assertiva</h2>
+                        <p><strong>Soft Skills</strong> são habilidades comportamentais essenciais no mercado de trabalho. A <strong>comunicação assertiva</strong> permite expressar ideias com clareza e respeito — nem agressiva, nem passiva. É fundamental para o trabalho em equipe e relacionamento com clientes.</p>
+                        <p>A <strong>escuta ativa</strong> significa compreender verdadeiramente o que o outro comunica — prestando atenção total, sem interromper e fazendo perguntas para confirmar o entendimento. O <strong>feedback construtivo</strong> é um retorno que aponta melhorias de forma respeitosa e específica.</p>
+                        <h2>Trabalho em Equipe e Proatividade</h2>
+                        <p>O <strong>trabalho em equipe</strong> exige empatia, respeito às diferenças e foco no objetivo comum. A <strong>empatia</strong> é a capacidade de se colocar no lugar do outro — essencial para resolver conflitos com respeito. Para resolver conflitos em equipe, o ideal é ouvir todas as partes e buscar consenso.</p>
+                        <p>A <strong>proatividade</strong> significa agir antecipadamente sem precisar ser solicitado — identificar problemas antes que ocorram e propor soluções. O <strong>networking</strong> serve para construir relações profissionais mutuamente benéficas ao longo da carreira.</p>
+                    `
+                },
+                artigo2: {
+                    modulo: "Módulo 2: Liderança",
+                    titulo: "Liderança e Inteligência Emocional",
+                    conteudo: `
+                        <h2>Liderança</h2>
+                        <p>A <strong>liderança</strong> envolve inspirar e motivar equipes, delegando tarefas e tomando decisões com responsabilidade. Um bom líder inspira, delega e desenvolve as pessoas — não controla nem microgerencia. Sabe ouvir, dar feedbacks construtivos e criar ambiente de confiança.</p>
+                        <p>A <strong>gestão do tempo</strong> permite organizar prioridades e aumentar a produtividade. A <strong>criatividade</strong> no trabalho significa gerar novas ideias e soluções para problemas — não significa trabalhar de forma desorganizada.</p>
+                        <h2>Inteligência Emocional e Resiliência</h2>
+                        <p>A <strong>inteligência emocional</strong> é a capacidade de gerenciar emoções para tomar decisões equilibradas. É importante em qualquer ambiente profissional — não apenas para RH ou situações de crise. Envolve autoconhecimento, autorregulação, empatia e habilidades sociais.</p>
+                        <p>A <strong>resiliência profissional</strong> é a capacidade de se adaptar e superar adversidades — não significa nunca errar, mas sim aprender com os erros e continuar. Profissionais resilientes lidam melhor com mudanças, pressão e incertezas do mercado de trabalho.</p>
+                    `
+                }
+            },
+            "Acessibilidade-Libras": {
+                artigo1: {
+                    modulo: "Módulo 1: Introdução à Libras",
+                    titulo: "Libras — Introdução e História",
+                    conteudo: `
+                        <h2>O que é Libras?</h2>
+                        <p>A <strong>Libras</strong> (Língua Brasileira de Sinais) é uma língua visual-espacial usada pela comunidade surda brasileira. Reconhecida pela <strong>Lei 10.436 de 2002</strong>, ela possui gramática própria e expressões faciais essenciais para a comunicação plena.</p>
+                        <p>A Libras <strong>não é universal</strong> — cada país tem sua própria língua de sinais (nos EUA é o ASL, na França é o LSF, etc.). Ela também <strong>não é mímica</strong>: é uma língua completa com gramática, sintaxe e estrutura próprias. A <strong>Datilologia</strong> é o uso do alfabeto manual para soletrar palavras.</p>
+                        <h2>Importância e Cultura Surda</h2>
+                        <p>As <strong>expressões faciais</strong> transmitem entonação e sentido à frase em Libras — são equivalentes à entonação da voz no português falado. Sem expressões faciais adequadas, o significado da frase pode mudar completamente.</p>
+                        <p>A <strong>Cultura Surda</strong> representa os valores e costumes próprios da comunidade surda. O <strong>Sinal-Nome</strong> é uma identificação única dada a uma pessoa pela comunidade surda — um sinal personalizado que representa aquela pessoa. O papel do <strong>intérprete de Libras</strong> é traduzir e mediar a comunicação entre ouvintes e surdos.</p>
+                    `
+                },
+                artigo2: {
+                    modulo: "Módulo 2: Gramática e Acessibilidade",
+                    titulo: "Gramática da Libras e Inclusão",
+                    conteudo: `
+                        <h2>Gramática da Libras</h2>
+                        <p>Os <strong>Classificadores</strong> são sinais que descrevem visualmente formas, tamanhos ou ações — são um recurso gramatical único das línguas de sinais. A <strong>Configuração de Mão</strong> é o formato que a mão assume ao realizar um sinal — um dos principais parâmetros fonológicos da Libras.</p>
+                        <p>O <strong>ponto de articulação</strong> é o local no corpo ou no espaço onde o sinal é realizado. O <strong>movimento</strong> e a <strong>orientação da palma</strong> também são parâmetros fundamentais que diferenciam sinais com configurações similares.</p>
+                        <h2>Inclusão e Acessibilidade</h2>
+                        <p>A <strong>Inclusão</strong> significa eliminar barreiras e garantir participação plena de todos — não é apenas adaptar o ambiente físico, mas também comunicacional, digital e social. Pessoas surdas <strong>podem dirigir</strong> — utilizam sinalizações visuais e retrovisores.</p>
+                        <p>A acessibilidade web seguindo as diretrizes <strong>WCAG</strong> garante que pessoas com deficiência possam usar sites e aplicativos. Isso inclui textos alternativos em imagens, contraste adequado de cores, navegação por teclado e legendas em vídeos.</p>
+                    `
+                }
+            },
+            "Inteligencia-Artificial": {
+                artigo1: {
+                    modulo: "Módulo 1: Fundamentos de IA",
+                    titulo: "Inteligência Artificial — Fundamentos",
+                    conteudo: `
+                        <h2>O que é Inteligência Artificial?</h2>
+                        <p>A <strong>Inteligência Artificial</strong> mimetiza a inteligência humana para realizar tarefas e resolver problemas. O <strong>Machine Learning</strong> permite que o sistema aprenda com dados automaticamente, identificando padrões sem ser explicitamente programado para cada situação.</p>
+                        <p>O <strong>Deep Learning</strong> é um subcampo do ML que usa múltiplas camadas de <strong>redes neurais</strong> para padrões complexos. As <strong>Redes Neurais</strong> são modelos matemáticos inspirados no funcionamento do cérebro humano.</p>
+                        <h2>IA no Dia a Dia</h2>
+                        <p>A <strong>IA Generativa</strong> é capaz de criar novos conteúdos como textos, imagens e sons — exemplos incluem ChatGPT e DALL-E. A <strong>Visão Computacional</strong> ensina máquinas a interpretar imagens e vídeos — usada em reconhecimento facial e carros autônomos.</p>
+                        <p>O <strong>PNL</strong> (Processamento de Linguagem Natural) permite a interação entre IA e linguagem humana. Exemplos de IA no dia a dia incluem <strong>assistentes de voz</strong> (Siri, Alexa) e <strong>sistemas de recomendação</strong> (Netflix, Spotify). O <strong>Viés na IA</strong> são erros sistemáticos derivados de preconceitos nos dados de treino.</p>
+                    `
+                },
+                artigo2: {
+                    modulo: "Módulo 2: IA Avançada e Ética",
+                    titulo: "IA Avançada, Ética e Big Data",
+                    conteudo: `
+                        <h2>Conceitos Avançados de IA</h2>
+                        <p>O <strong>Teste de Turing</strong> verifica se uma máquina consegue se passar por humano em uma conversa — criado por Alan Turing em 1950. O <strong>Big Data</strong> representa volumes massivos de dados usados para treinar modelos complexos de IA.</p>
+                        <p>O <strong>Treinamento de Modelo</strong> é o processo de ajustar os parâmetros da IA usando dados conhecidos — quanto mais dados e mais variados, melhor o modelo aprende. A <strong>IA Forte (AGI)</strong> é uma IA teórica com inteligência igual ou superior à humana — ainda não existe na prática.</p>
+                        <h2>Ética na IA</h2>
+                        <p>A <strong>Ética na IA</strong> é fundamental para garantir transparência, segurança e evitar danos sociais. Um <strong>Algoritmo de IA</strong> define as regras e cálculos para processar dados e dar respostas. Um <strong>Chatbot</strong> é um programa de IA projetado para simular conversas com usuários humanos.</p>
+                        <p>Questões éticas importantes incluem: privacidade dos dados, transparência nos algoritmos de decisão, impacto no emprego e responsabilidade por decisões automatizadas. A IA deve ser desenvolvida com foco no <strong>bem-estar humano</strong> e no respeito aos direitos fundamentais.</p>
+                    `
+                }
+            }
+        };
+
+        /* ── pega parâmetros da URL ── */
+        const params   = new URLSearchParams(window.location.search);
+        const cursoKey = params.get("curso");
+        const etapa    = parseInt(params.get("etapa") || "1");
+
+        /* ── redireciona se não tiver curso ── */
+        if (!cursoKey || cursoKey === "null" || !conteudos[cursoKey]) {
+            window.location.href = "dashboard-aluno.html";
+        }
+
+        const dadosCurso = conteudos[cursoKey];
+
+        /* ── decide qual artigo mostrar com base na etapa ── */
+        const artigo = etapa === 2 ? dadosCurso.artigo2 : dadosCurso.artigo1;
+
+        /* ── preenche a página ── */
+        document.getElementById("artigo-modulo").textContent  = artigo.modulo;
+        document.getElementById("artigo-titulo").textContent  = artigo.titulo;
+        document.getElementById("artigo-conteudo").innerHTML  = artigo.conteudo;
+
+        /* ── define o próximo passo e o texto do botão ──
+           artigo 1 (etapa 1) → próximo é artigo 2
+           artigo 2 (etapa 2) → próximo é quiz 1
+        ── */
+        const btnProximo = document.getElementById("btn-proximo");
+        const btnTexto   = document.getElementById("btn-proximo-texto");
+
+        if (etapa === 1) {
+            /* artigo 1 lido → avança progresso para 1 e vai para artigo 2 */
+            btnTexto.textContent = "Próximo: Artigo 2 →";
+            btnProximo.href = `artigo.html?curso=${cursoKey}&etapa=2`;
+            btnProximo.addEventListener("click", () => {
+                const progressoKey = `progresso-${cursoKey}`;
+                const atual = parseInt(localStorage.getItem(progressoKey) || "0");
+                /* só avança se ainda não passou dessa etapa */
+                if (atual < 1) localStorage.setItem(progressoKey, "1");
+            });
+        } else {
+            /* artigo 2 lido → avança progresso para 2 e vai para quiz 1 */
+            btnTexto.textContent = "Iniciar Quiz 1 →";
+            btnProximo.href = `quiz-modulo.html?curso=${cursoKey}&quiz=1`;
+            btnProximo.addEventListener("click", () => {
+                const progressoKey = `progresso-${cursoKey}`;
+                const atual = parseInt(localStorage.getItem(progressoKey) || "0");
+                if (atual < 2) localStorage.setItem(progressoKey, "2");
+            });
+        }
+    </script>
+
+    <script src="js/main.js"></script>
+
+</body>
+</html>

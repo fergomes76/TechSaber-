@@ -1,0 +1,87 @@
+/* ARTIGO CSS - TechSaber+
+   Estilos da página de artigo */
+
+/* ── LAYOUT PRINCIPAL ── */
+.artigo-main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* ── HEADER DO ARTIGO ── */
+.artigo-header {
+    text-align: center;
+}
+
+.artigo-modulo {
+    font-size: var(--fonte-pequena);
+    color: var(--cor-destaque);
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+.artigo-header h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: var(--fonte-grande);
+}
+
+/* ── CONTEÚDO DO ARTIGO ── */
+.artigo-conteudo {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    line-height: 1.8;
+}
+
+.artigo-conteudo h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: var(--fonte-media);
+    color: var(--cor-destaque);
+    margin-bottom: 0.5rem;
+}
+
+.artigo-conteudo p {
+    color: var(--texto-suave);
+    font-size: var(--fonte-normal);
+}
+
+.artigo-conteudo strong {
+    color: var(--texto-claro);
+}
+
+.artigo-conteudo code {
+    background: rgba(147, 51, 234, 0.3);
+    color: var(--cor-destaque);
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+/* ── BOTÃO INICIAR ── */
+.artigo-botao {
+    text-align: center;
+}
+
+.artigo-botao .btn-block {
+    max-width: 300px;
+    margin: 0 auto;
+    display: block;
+    padding: 1rem 2rem;
+    font-size: var(--fonte-normal);
+}
+
+/* ══ RESPONSIVO ══ */
+@media (max-width: 600px) {
+    .artigo-conteudo {
+        padding: 1.5rem;
+    }
+
+    .artigo-header h1 {
+        font-size: var(--fonte-media);
+    }
+}

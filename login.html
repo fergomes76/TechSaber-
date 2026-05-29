@@ -19,10 +19,10 @@
     <header>
         <nav>
             <a href="index.html"><span class="nav-logo">🎓 TechSaber+</span></a>
-            <div class="nav-botoes">
-                <a href="index.html"><button class="btn-primario">Voltar</button></a>
-                <a href="cadastro.html"><button class="btn-destaque">Cadastrar</button></a>
-            </div>
+            <menu>
+                <li><a href="index.html"><button class="btn-primario">Voltar</button></a></li>
+                <li><a href="cadastro.html"><button class="btn-destaque">Cadastrar</button></a></li>
+            </menu>
         </nav>
     </header>
 
@@ -30,67 +30,69 @@
 
         <!-- ══ TELA 1: ESCOLHA DE PERFIL ══ -->
         <section class="perfil-section" id="tela-perfil">
-            <h1>Como você vai usar a <span class="destaque">TechSaber+</span>?</h1>
-            <p>Escolha seu perfil para continuar</p>
+            <hgroup>
+                <h1>Como você vai usar a <span class="destaque">TechSaber+</span>?</h1>
+                <p>Escolha seu perfil para continuar</p>
+            </hgroup>
 
-            <div class="perfil-cards">
+            <section class="perfil-cards" aria-label="Opções de perfil">
 
                 <article class="card perfil-card" onclick="escolherPerfil('aluno')">
-                    <span class="perfil-icone">🎓</span>
+                    <span class="perfil-icone" role="img" aria-label="Ícone de aluno">🎓</span>
                     <h2>Sou aluno</h2>
                     <p>Acesse cursos, trilhas e conquistas</p>
                 </article>
 
                 <article class="card perfil-card" onclick="escolherPerfil('professor')">
-                    <span class="perfil-icone">📚</span>
+                    <span class="perfil-icone" role="img" aria-label="Ícone de professor">📚</span>
                     <h2>Sou professor</h2>
                     <p>Gerencie turmas, atividades e relatórios</p>
                 </article>
 
                 <article class="card perfil-card" onclick="escolherPerfil('admin')">
-                    <span class="perfil-icone">⚙️</span>
+                    <span class="perfil-icone" role="img" aria-label="Ícone de administrador">⚙️</span>
                     <h2>Sou administrador</h2>
                     <p>Acesse o painel completo da plataforma</p>
                 </article>
 
-            </div>
+            </section>
         </section>
 
         <!-- ══ TELA 2: FORMULÁRIO DE LOGIN ══ -->
-        <section class="form-section" id="tela-login" style="display:none;">
+        <section class="form-section" id="tela-login" style="display:none;" aria-label="Formulário de login">
 
-            <div class="login-card card">
+            <article class="login-card card">
                 <span class="nav-logo">🎓 TechSaber+</span>
 
                 <!-- mensagem de erro -->
-                <div class="msg-erro" id="msg-erro" style="display:none;">
+                <output class="msg-erro" id="msg-erro" style="display:none;" role="alert" aria-live="assertive">
                     Email ou senha incorretos. Verifique os dados e tente novamente.
-                </div>
+                </output>
 
                 <!-- mensagem de sucesso -->
-                <div class="msg-sucesso" id="msg-sucesso" style="display:none;">
+                <output class="msg-sucesso" id="msg-sucesso" style="display:none;" role="status" aria-live="polite">
                     Login concluído com sucesso!
-                </div>
+                </output>
 
-                <div class="form-grupo">
+                <fieldset>
+                    <legend class="sr-only">Credenciais de acesso</legend>
+
                     <label for="login-email">Login</label>
-                    <input type="text" id="login-email" placeholder="digite seu e-mail ou CPF">
-                </div>
+                    <input type="text" id="login-email" placeholder="digite seu e-mail ou CPF" autocomplete="username">
 
-                <div class="form-grupo">
                     <label for="login-senha">Senha</label>
-                    <input type="password" id="login-senha" placeholder="digite sua senha">
-                </div>
+                    <input type="password" id="login-senha" placeholder="digite sua senha" autocomplete="current-password">
+                </fieldset>
 
                 <button class="btn-destaque btn-block" onclick="fazerLogin()">Entrar</button>
 
-                <div class="login-rodape">
+                <footer class="login-rodape">
                     <p>Não é cadastrado? <a href="cadastro.html">Crie sua conta!</a></p>
                     <a href="#">Esqueci minha senha.</a>
-                </div>
+                </footer>
 
                 <button class="btn-voltar" onclick="voltarPerfil()">← Voltar</button>
-            </div>
+            </article>
 
         </section>
 
