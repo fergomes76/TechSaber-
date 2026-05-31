@@ -27,9 +27,6 @@
                 <a href="biblioteca.html">
                     <button class="btn-primario">Voltar</button>
                 </a>
-                <a href="index.html">
-                    <button class="btn-destaque" style="width:auto;">Sair</button>
-                </a>
             </span>
         </nav>
     </header>
@@ -141,6 +138,8 @@
         const params   = new URLSearchParams(window.location.search);
         const cursoKey = params.get("curso") || "Front-End";
         const curso    = cursos[cursoKey] || cursos["Front-End"];
+        localStorage.setItem("ultimoCursoNome", curso.titulo.replace(/<[^>]*>/g, ""));
+        localStorage.setItem("ultimoCurso", cursoKey);
 
         /* lê o progresso do localStorage
            0 = só artigo 1 disponível (estado inicial)

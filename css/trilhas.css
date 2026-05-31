@@ -98,9 +98,10 @@
 .trilha-passos {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     list-style: none;
     position: relative;
+    padding: 0 1rem;
 }
 
 /* linha conectando os passos */

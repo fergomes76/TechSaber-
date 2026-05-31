@@ -21,7 +21,6 @@
             <span class="nav-logo">🎓 TechSaber+</span>
             <span style="display:flex; gap:0.5rem;">
                 <a href="dashboard-aluno.html"><button class="btn-primario">Voltar</button></a>
-                <a href="index.html"><button class="btn-destaque">Sair</button></a>
             </span>
         </nav>
     </header>
@@ -36,21 +35,21 @@
                 <img src="assets/images/avatar.png" alt="Foto do aluno" class="perfil-avatar"
                      onerror="this.style.display='none'">
                 <span class="perfil-avatar-emoji" id="avatar-emoji">🧑‍💻</span>
-                <div class="perfil-info">
+                <span class="perfil-info">
                     <h1 id="perfil-nome">Aluno</h1>
                     <p>
                         <span>📖</span>
                         <span id="perfil-curso">BANCO DE DADOS - ANDAMENTO</span>
                     </p>
-                </div>
+                </span>
             </article>
 
             <!-- card ofensiva - clicável -->
-            <article class="card ofensiva-card" onclick="window.location.href='ofensiva.html'">
+            <article class="card ofensiva-card" onclick="localStorage.setItem('origemOfensiva','perfil.html'); window.location.href='ofensiva.html'">
                 <span class="ofensiva-fogo">🔥</span>
                 <strong class="ofensiva-numero" id="dias-consecutivos">12</strong>
                 <p>DIAS CONSECUTIVOS</p>
-                <div class="ofensiva-barras">
+                <span class="ofensiva-barras">
                     <span class="barra ativa"></span>
                     <span class="barra ativa"></span>
                     <span class="barra ativa"></span>
@@ -59,7 +58,7 @@
                     <span class="barra ativa"></span>
                     <span class="barra"></span>
                     <span class="barra"></span>
-                </div>
+                </span>
             </article>
 
         </section>
@@ -68,26 +67,56 @@
         <section class="perfil-stats">
 
             <article class="card stat-card">
-                <span class="stat-icone">⚡</span>
-                <p class="stat-label">TOTAL DE XP</p>
-                <strong class="stat-valor">200<small>XP</small></strong>
+                <span class="stat-icone">📚</span>
+                <p class="stat-label">CURSOS INICIADOS</p>
+                <strong class="stat-valor" id="cursos-iniciados">0</strong>
             </article>
 
             <article class="card stat-card">
                 <span class="stat-icone">🏆</span>
                 <p class="stat-label">DIAS ATIVOS</p>
-                <strong class="stat-valor">12</strong>
+                <strong class="stat-valor" id="dias-ativos">0</strong>
             </article>
 
             <article class="card stat-card">
                 <span class="stat-icone">✅</span>
-                <p class="stat-label">MÓDULOS FEITOS</p>
-                <strong class="stat-valor">31 / 35</strong>
+                <p class="stat-label">ETAPAS CONCLUÍDAS</p>
+                <strong class="stat-valor" id="etapas-concluidas">0 / 35</strong>
             </article>
 
         </section>
 
     </main>
+
+    <script>
+        const todosCursos = ["Front-End","Back-End","Banco-de-Dados","Engenharia-de-Software","Soft-Skills","Acessibilidade-Libras","Inteligencia-Artificial"];
+
+        /* cursos iniciados */
+        const cursosIniciados = todosCursos.filter(c => parseInt(localStorage.getItem(`progresso-${c}`) || "0") > 0).length;
+        document.getElementById("cursos-iniciados").textContent = cursosIniciados;
+
+        /* dias consecutivos */
+        const dias = parseInt(localStorage.getItem("diasConsecutivos") || "0");
+        document.getElementById("dias-consecutivos").textContent = dias;
+        document.getElementById("dias-ativos").textContent = dias;
+
+        /* etapas concluídas */
+        const totalEtapas = todosCursos.reduce((acc, c) => acc + parseInt(localStorage.getItem(`progresso-${c}`) || "0"), 0);
+        document.getElementById("etapas-concluidas").textContent = `${totalEtapas} / 35`;
+
+        /* ultimo curso */
+        const ultimoCursoNome = localStorage.getItem("ultimoCursoNome");
+        if (ultimoCursoNome) {
+            document.getElementById("perfil-curso").textContent = ultimoCursoNome.toUpperCase() + " - ANDAMENTO";
+        }
+
+        /* barras ofensiva */
+        const barras = document.querySelectorAll(".ofensiva-barras .barra");
+        barras.forEach((b, i) => {
+            if (i < dias) b.classList.add("ativa");
+            else b.classList.remove("ativa");
+        });
+    </script>
 
     <script src="js/main.js"></script>
 
