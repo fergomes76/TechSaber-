@@ -1,7 +1,7 @@
 /* CURSO CSS - TechSaber+
    Estilos da trilha individual de cada curso */
 
-/* ── LAYOUT PRINCIPAL ── */
+/* LAYOUT PRINCIPAL */
 .curso-main {
     padding: 2rem;
     max-width: 700px;
@@ -12,14 +12,14 @@
     gap: 2rem;
 }
 
-/* ── TÍTULO DO CURSO ── */
+/* TÍTULO DO CURSO */
 .curso-titulo h1 {
     font-family: 'Space Grotesk', sans-serif;
     font-size: var(--fonte-grande);
     text-align: center;
 }
 
-/* ── TRILHA VERTICAL ── */
+/* TRILHA VERTICAL */
 .trilha-vertical {
     display: flex;
     flex-direction: column;
@@ -42,7 +42,7 @@
     z-index: 0;
 }
 
-/* ── ITEM DE ATIVIDADE ── */
+/* ITEM DE ATIVIDADE */
 .atividade-item {
     display: flex;
     align-items: center;
@@ -67,7 +67,7 @@
     padding-left: calc(50% + 1.5rem);
 }
 
-/* ── CONTEÚDO DA ATIVIDADE ── */
+/* CONTEÚDO DA ATIVIDADE */
 .atividade-conteudo {
     max-width: 250px;
     padding: 1rem;
@@ -91,7 +91,7 @@
     color: var(--texto-suave);
 }
 
-/* ── PONTO DA TRILHA ── */
+/* PONTO DA TRILHA */
 .atividade-ponto {
     position: absolute;
     left: 50%;
@@ -126,7 +126,7 @@
     opacity: 0.4;
 }
 
-/* ── CARD EM ANDAMENTO ── */
+/* CARD EM ANDAMENTO */
 .andamento-card {
     border-color: var(--cor-destaque);
     display: flex;
@@ -160,12 +160,12 @@
     font-size: var(--fonte-pequena);
 }
 
-/* ── CARD BLOQUEADO ── */
+/* CARD BLOQUEADO */
 .bloqueado-card {
     opacity: 0.5;
 }
 
-/* ── MÓDULO CONCLUÍDO ── */
+/* MÓDULO CONCLUÍDO */
 .modulo-concluido {
     text-align: center;
     padding: 2rem;
@@ -184,7 +184,7 @@
     color: var(--texto-suave);
 }
 
-/* ══ RESPONSIVO ══ */
+/* RESPONSIVO */
 @media (max-width: 600px) {
     .trilha-vertical::before {
         left: 20px; /* linha vai para a esquerda no celular */

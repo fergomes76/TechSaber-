@@ -1,7 +1,7 @@
 /* INDEX CSS - TechSaber+
    Estilos específicos da landing page */
 
-/* ── HERO ── */
+/* HERO */
 .hero {
     display: flex;
     justify-content: space-between;
@@ -31,7 +31,7 @@
     color: var(--cor-destaque);
 }
 
-/* ── CARD DO HERO ── */
+/* CARD DO HERO */
 .hero-card {
     background: var(--card-fundo);
     border: 1px solid var(--card-borda);
@@ -70,7 +70,7 @@
     color: var(--texto-suave); /* cor do texto placeholder */
 }
 
-/* ── STATS ── */
+/* STATS */
 .stats {
     display: flex;
     justify-content: center;
@@ -96,7 +96,7 @@
     color: var(--texto-suave);
 }
 
-/* ── FEATURES ── */
+/* FEATURES */
 .features {
     padding: 4rem 2rem;
     text-align: center;
@@ -142,7 +142,7 @@
     font-size: var(--fonte-pequena);
 }
 
-/* ── FOOTER ── */
+/* FOOTER */
 footer {
     text-align: center;
     padding: 2rem;
@@ -151,7 +151,7 @@ footer {
     border-top: 1px solid var(--card-borda);
 }
 
-/* ══ RESPONSIVO ══ */
+/* RESPONSIVO */
 
 /* tablet */
 @media (max-width: 768px) {
@@ -180,7 +180,7 @@ footer {
     }
 
     .features-grid {
-        grid-template-columns: 1fr; /* 1 coluna no celular */
+        grid-template-columns: 1fr;
     }
 
     .stats {
@@ -188,7 +188,21 @@ footer {
     }
 
     nav {
-        flex-direction: column;
-        gap: 1rem;
+        flex-direction: row;        /* horizontal */
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav-botoes {
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+    }
+
+    .nav-botoes button {
+        white-space: nowrap;
+        font-size: 0.75rem;
+        padding: 6px 10px;
     }
 }

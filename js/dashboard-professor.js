@@ -1,14 +1,10 @@
-/* ==========================================================
-   dashboard-professor.js
-   Comportamentos interativos da página do professor
-   ========================================================== */
+/*  dashboard-professor.js
+   Comportamentos interativos da página do professor */
 
 
-/* ----------------------------------------------------------
-   1. MODAL – ABRIR / FECHAR
+/* 1. MODAL – ABRIR / FECHAR
    O <dialog> nativo já trata foco e teclado (ESC fecha).
-   As funções abaixo são chamadas pelos botões no HTML.
-   ---------------------------------------------------------- */
+   As funções abaixo são chamadas pelos botões no HTML. */
 
 /** Abre o modal de adicionar atividade */
 function abrirModal() {
@@ -21,11 +17,9 @@ function fecharModal() {
 }
 
 
-/* ----------------------------------------------------------
-   2. FORMULÁRIO – PUBLICAR ATIVIDADE
+/* 2. FORMULÁRIO – PUBLICAR ATIVIDADE
    Ao submeter, adiciona uma nova linha na tabela e
-   fecha o modal. (Substituir pelo fetch() da API futuramente)
-   ---------------------------------------------------------- */
+   fecha o modal. (Substituir pelo fetch() da API futuramente) */
 document.addEventListener('DOMContentLoaded', () => {
 
   const form   = document.getElementById('form-atividade');

@@ -1,7 +1,7 @@
 /* PERFIL CSS - TechSaber+
    Estilos da tela de perfil do aluno */
 
-/* ── LAYOUT PRINCIPAL ── */
+/* LAYOUT PRINCIPAL */
 .perfil-main {
     padding: 2rem;
     max-width: 900px;
@@ -11,14 +11,14 @@
     gap: 1.5rem;
 }
 
-/* ── LINHA 1: ALUNO + OFENSIVA ── */
+/* LINHA 1: ALUNO + OFENSIVA */
 .perfil-topo {
     display: grid;
     grid-template-columns: 2fr 1fr; /* aluno maior, ofensiva menor */
     gap: 1.5rem;
 }
 
-/* ── CARD ALUNO ── */
+/* CARD ALUNO */
 .perfil-aluno {
     display: flex;
     align-items: center;
@@ -51,7 +51,7 @@
     color: var(--texto-suave);
 }
 
-/* ── CARD OFENSIVA ── */
+/* CARD OFENSIVA */
 .ofensiva-card {
     text-align: center;
     padding: 2rem;
@@ -102,7 +102,7 @@
     background: var(--cor-destaque);
 }
 
-/* ── LINHA 2: STATS ── */
+/* LINHA 2: STATS */
 .perfil-stats {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 3 colunas iguais */
@@ -138,7 +138,7 @@
     color: var(--texto-suave);
 }
 
-/* ══ RESPONSIVO ══ */
+/* RESPONSIVO */
 @media (max-width: 768px) {
     .perfil-topo {
         grid-template-columns: 1fr; /* empilha no tablet */

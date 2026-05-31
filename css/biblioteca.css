@@ -1,14 +1,14 @@
 /* BIBLIOTECA CSS - TechSaber+
    Estilos da página de categorias */
 
-/* ── LAYOUT PRINCIPAL ── */
+/* LAYOUT PRINCIPAL */
 .biblioteca-main {
     padding: 2rem;
     max-width: 900px;
     margin: 0 auto;
 }
 
-/* ── BARRA DE BUSCA ── */
+/* BARRA DE BUSCA */
 .busca-section {
     margin-bottom: 2rem;
 }
@@ -29,7 +29,7 @@
     color: var(--texto-suave);
 }
 
-/* ── TÍTULO ── */
+/* TÍTULO */
 .categorias-section h1 {
     font-family: 'Space Grotesk', sans-serif;
     font-size: var(--fonte-grande);
@@ -37,7 +37,7 @@
     margin-bottom: 2rem;
 }
 
-/* ── GRID DE CATEGORIAS ── */
+/* GRID DE CATEGORIAS */
 .categorias-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 3 colunas igual ao Figma */
@@ -45,7 +45,7 @@
     list-style: none;
 }
 
-/* ── CARD DE CATEGORIA ── */
+/* CARD DE CATEGORIA */
 .categoria-card {
     display: flex;
     flex-direction: column;
@@ -83,7 +83,7 @@
     z-index: 1;
 }
 
-/* ══ RESPONSIVO ══ */
+/* RESPONSIVO */
 @media (max-width: 768px) {
     .categorias-grid {
         grid-template-columns: repeat(2, 1fr); /* 2 colunas no tablet */

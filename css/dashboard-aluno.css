@@ -1,7 +1,7 @@
 /* DASHBOARD ALUNO CSS - TechSaber+
    Estilos da tela principal do aluno */
 
-/* ── LAYOUT PRINCIPAL ── */
+/* LAYOUT PRINCIPAL */
 .dashboard-main {
     min-height: 100vh;
     display: flex;
@@ -10,7 +10,7 @@
     padding: 2rem;
 }
 
-/* ── SEÇÃO DE SELEÇÃO ── */
+/* SEÇÃO DE SELEÇÃO */
 .selecao-section {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 3 colunas no desktop */
@@ -19,7 +19,7 @@
     width: 100%;
 }
 
-/* ── CARDS DE SELEÇÃO ── */
+/* CARDS DE SELEÇÃO */
 .selecao-card {
     position: relative;
     padding: 2rem;

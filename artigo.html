@@ -15,7 +15,7 @@
 
 <body>
 
-    <!-- ══ NAVBAR ══ -->
+    <!-- NAVBAR -->
     <header>
         <nav>
             <span class="nav-logo">🎓 TechSaber+</span>
@@ -47,13 +47,12 @@
     </main>
 
     <script>
-        /* ══════════════════════════════════════════
-           CONTEÚDO DOS ARTIGOS
+        /* CONTEÚDO DOS ARTIGOS
            Cada curso tem artigo1 e artigo2
            O parâmetro "etapa" na URL define qual mostrar
            etapa=1 → artigo 1
-           etapa=2 → artigo 2
-        ══════════════════════════════════════════ */
+           etapa=2 → artigo 2 */
+
         const conteudos = {
             "Front-End": {
                 artigo1: {
@@ -239,30 +238,30 @@
             }
         };
 
-        /* ── pega parâmetros da URL ── */
+        /* pega parâmetros da URL */
         const params   = new URLSearchParams(window.location.search);
         const cursoKey = params.get("curso");
         const etapa    = parseInt(params.get("etapa") || "1");
 
-        /* ── redireciona se não tiver curso ── */
+        /* redireciona se não tiver curso */
         if (!cursoKey || cursoKey === "null" || !conteudos[cursoKey]) {
             window.location.href = "dashboard-aluno.html";
         }
 
         const dadosCurso = conteudos[cursoKey];
 
-        /* ── decide qual artigo mostrar com base na etapa ── */
+        /* decide qual artigo mostrar com base na etapa */
         const artigo = etapa === 2 ? dadosCurso.artigo2 : dadosCurso.artigo1;
 
-        /* ── preenche a página ── */
+        /* preenche a página */
         document.getElementById("artigo-modulo").textContent  = artigo.modulo;
         document.getElementById("artigo-titulo").textContent  = artigo.titulo;
         document.getElementById("artigo-conteudo").innerHTML  = artigo.conteudo;
 
-        /* ── define o próximo passo e o texto do botão ──
+        /* define o próximo passo e o texto do botão
            artigo 1 (etapa 1) → próximo é artigo 2
-           artigo 2 (etapa 2) → próximo é quiz 1
-        ── */
+           artigo 2 (etapa 2) → próximo é quiz 1 */
+           
         const btnProximo = document.getElementById("btn-proximo");
         const btnTexto   = document.getElementById("btn-proximo-texto");
 

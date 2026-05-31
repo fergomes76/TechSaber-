@@ -1,13 +1,9 @@
-/* ==========================================================
-   dashboard-admin.js
-   Comportamentos interativos do painel do administrador
-   ========================================================== */
+/* dashboard-admin.js
+   Comportamentos interativos do painel do administrador */
 
 
-/* ----------------------------------------------------------
-   1. SISTEMA DE ABAS
-   Alterna entre Visão Geral, Professores e Alunos
-   ---------------------------------------------------------- */
+/* 1. SISTEMA DE ABAS
+   Alterna entre Visão Geral, Professores e Alunos */
 document.addEventListener('DOMContentLoaded', () => {
 
   const tabBtns   = document.querySelectorAll('.tab-btn');
@@ -38,10 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
   ativarAba('aba-visao-geral');
 
 
-  /* --------------------------------------------------------
-     2. ANIMAÇÃO DAS BARRAS DE PROGRESSO
-     Aguarda 100ms para disparar a transição CSS (width: 0 → valor real)
-     -------------------------------------------------------- */
+  /* 2. ANIMAÇÃO DAS BARRAS DE PROGRESSO
+     Aguarda 100ms para disparar a transição CSS (width: 0 → valor real) */
   setTimeout(() => {
     document.querySelectorAll('.bar-fill').forEach(barra => {
       barra.style.width = barra.dataset.valor;

@@ -1,7 +1,7 @@
 /* OFENSIVA CSS - TechSaber+
    Estilos da tela de ofensiva do aluno */
 
-/* ── LAYOUT PRINCIPAL ── */
+/* LAYOUT PRINCIPAL */
 .ofensiva-main {
     min-height: 100vh;
     display: flex;
@@ -12,7 +12,7 @@
     padding: 2rem;
 }
 
-/* ── BANNER ── */
+/* BANNER */
 .banner-section {
     width: 100%;
     max-width: 500px;
@@ -29,7 +29,7 @@
     display: inline-block;
 }
 
-/* ── CARD OFENSIVA GRANDE ── */
+/* CARD OFENSIVA GRANDE */
 .ofensiva-card-grande {
     text-align: center;
     padding: 3rem 4rem;
@@ -77,7 +77,7 @@
     background: var(--cor-destaque);
 }
 
-/* ── BOTÕES ── */
+/* BOTÕES */
 .ofensiva-botoes {
     display: flex;
     gap: 1rem;
@@ -100,7 +100,7 @@
     border-color: var(--cor-primaria);
 }
 
-/* ══ RESPONSIVO ══ */
+/* RESPONSIVO */
 @media (max-width: 480px) {
     .ofensiva-botoes {
         flex-direction: column;
@@ -119,4 +119,4 @@
     .ofensiva-numero {
         font-size: 3.5rem;
     }
-}s
+}

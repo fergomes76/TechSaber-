@@ -1,12 +1,8 @@
-/* ==========================================================
-   dashboard-admin.css
-   Estilos da página do administrador – TechSaber+
-   ========================================================== */
+/* dashboard-admin.css
+   Estilos da página do administrador – TechSaber+ */
 
+/* 1. VARIÁVEIS DE TEMA (mesma paleta do projeto) */
 
-/* ----------------------------------------------------------
-   1. VARIÁVEIS DE TEMA (mesma paleta do projeto)
-   ---------------------------------------------------------- */
 :root {
   --purple-card:   #3A2080;
   --purple-accent: #5C2FC2;
@@ -23,9 +19,7 @@
 }
 
 
-/* ----------------------------------------------------------
-   2. RESET + BASE
-   ---------------------------------------------------------- */
+/* 2. RESET + BASE */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -43,9 +37,7 @@ body {
 }
 
 
-/* ----------------------------------------------------------
-   3. HEADER
-   ---------------------------------------------------------- */
+/* 3. HEADER */
 .header {
   display: flex;
   align-items: center;
@@ -95,9 +87,7 @@ body {
 }
 
 
-/* ----------------------------------------------------------
-   4. NAVEGAÇÃO POR ABAS
-   ---------------------------------------------------------- */
+/* 4. NAVEGAÇÃO POR ABAS */
 .tabs {
   display: flex;
   gap: 4px;
@@ -139,9 +129,7 @@ body {
 }
 
 
-/* ----------------------------------------------------------
-   5. CONTEÚDO PRINCIPAL
-   ---------------------------------------------------------- */
+/* 5. CONTEÚDO PRINCIPAL */
 .main {
   flex: 1;
   width: 100%;
@@ -164,9 +152,7 @@ body {
 }
 
 
-/* ----------------------------------------------------------
-   6. TÍTULO DE SEÇÃO
-   ---------------------------------------------------------- */
+/* 6. TÍTULO DE SEÇÃO */
 .section-title {
   font-family: 'Sora', sans-serif;
   font-size: 1.15rem;
@@ -176,9 +162,7 @@ body {
 }
 
 
-/* ----------------------------------------------------------
-   7. CARDS DE ESTATÍSTICAS
-   ---------------------------------------------------------- */
+/* 7. CARDS DE ESTATÍSTICAS */
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -229,9 +213,7 @@ body {
 }
 
 
-/* ----------------------------------------------------------
-   8. GRÁFICOS
-   ---------------------------------------------------------- */
+/* 8. GRÁFICOS */
 .charts-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -285,9 +267,7 @@ body {
 .bar-fill--pink { background: #FF50A0; }
 
 
-/* ----------------------------------------------------------
-   9. CABEÇALHO DAS SEÇÕES DE TABELA
-   ---------------------------------------------------------- */
+/* 9. CABEÇALHO DAS SEÇÕES DE TABELA */
 .table-header {
   display: flex;
   align-items: center;
@@ -298,9 +278,7 @@ body {
 }
 
 
-/* ----------------------------------------------------------
-   10. TABELAS
-   ---------------------------------------------------------- */
+/* 10. TABELAS */
 .table-wrap {
   border-radius: var(--radius-md);
   overflow: hidden;
@@ -345,9 +323,7 @@ body {
 }
 
 
-/* ----------------------------------------------------------
-   11. STATUS
-   ---------------------------------------------------------- */
+/* 11. STATUS */
 .status {
   display: inline-flex;
   align-items: center;
@@ -371,9 +347,7 @@ body {
 .status--inativo::before { background: #FF7070; }
 
 
-/* ----------------------------------------------------------
-   12. BOTÕES
-   ---------------------------------------------------------- */
+/* 12. BOTÕES */
 .btn-primary {
   display: inline-flex;
   align-items: center;
@@ -437,9 +411,7 @@ body {
 .btn-action--danger:hover { background: rgba(255, 80, 80, 0.40); }
 
 
-/* ----------------------------------------------------------
-   13. RESPONSIVIDADE
-   ---------------------------------------------------------- */
+/* 13. RESPONSIVIDADE */
 @media (max-width: 700px) {
   .header {
     padding: 14px 16px;

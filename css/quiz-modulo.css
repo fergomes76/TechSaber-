@@ -1,7 +1,7 @@
 /* QUIZ MODULO CSS - TechSaber+
    Estilos da página de quiz */
 
-/* ── LAYOUT PRINCIPAL ── */
+/* LAYOUT PRINCIPAL */
 .quiz-main {
     max-width: 700px;
     margin: 0 auto;
@@ -11,7 +11,7 @@
     gap: 2rem;
 }
 
-/* ── HEADER DO QUIZ ── */
+/* HEADER DO QUIZ */
 .quiz-header {
     text-align: center;
 }
@@ -29,7 +29,7 @@
     font-size: var(--fonte-pequena);
 }
 
-/* ── CARD DO QUIZ ── */
+/* CARD DO QUIZ */
 .quiz-card {
     padding: 2rem;
     display: flex;
@@ -43,7 +43,7 @@
     text-align: center;
 }
 
-/* ── OPÇÕES ── */
+/* OPÇÕES */
 .quiz-opcoes {
     display: flex;
     flex-direction: column;
@@ -91,7 +91,7 @@
     min-width: 20px;
 }
 
-/* ── BOTÃO ENVIAR ── */
+/* BOTÃO ENVIAR */
 #btn-enviar {
     padding: 1rem;
     font-size: var(--fonte-normal);
@@ -104,7 +104,7 @@
     cursor: not-allowed;
 }
 
-/* ── RESULTADO ── */
+/* RESULTADO */
 .resultado-card {
     text-align: center;
     padding: 3rem 2rem;
@@ -136,7 +136,7 @@
     margin-top: 1rem;
 }
 
-/* ══ RESPONSIVO ══ */
+/* RESPONSIVO */
 @media (max-width: 480px) {
     .quiz-card {
         padding: 1.5rem;

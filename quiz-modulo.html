@@ -15,7 +15,7 @@
 
 <body>
 
-    <!-- ══ NAVBAR ══ -->
+    <!-- NAVBAR -->
     <header>
         <nav>
             <span class="nav-logo">🎓 TechSaber+</span>
@@ -47,11 +47,10 @@
     </main>
 
     <script>
-        /* ══════════════════════════════════════════
-           BANCO DE QUESTÕES
+        /*  BANCO DE QUESTÕES
            Cada curso tem quiz1 (5 questões) e quiz2 (5 questões)
-           O parâmetro ?quiz=1 ou ?quiz=2 define qual mostrar
-        ══════════════════════════════════════════ */
+           O parâmetro ?quiz=1 ou ?quiz=2 define qual mostrar */
+           
         const bancoCursos = {
             "Front-End": {
                 quiz1: {
@@ -209,12 +208,12 @@
             }
         };
 
-        /* ── pega parâmetros da URL ── */
+        /* pega parâmetros da URL */
         const params   = new URLSearchParams(window.location.search);
         const cursoKey = params.get("curso") || "Front-End";
         const quizNum  = params.get("quiz")  || "1";
 
-        /* ── seleciona o quiz correto ── */
+        /* seleciona o quiz correto */
         const dadosCurso = bancoCursos[cursoKey];
         const quiz       = quizNum === "2" ? dadosCurso.quiz2 : dadosCurso.quiz1;
 
@@ -225,7 +224,7 @@
         /* preenche o título */
         document.getElementById("quiz-titulo").textContent = quiz.titulo;
 
-        /* ── mostra a pergunta atual ── */
+        /* mostra a pergunta atual */
         function mostrarPergunta() {
             const q = quiz.perguntas[atual];
 
@@ -254,7 +253,7 @@
             });
         }
 
-        /* ── marca a opção selecionada ── */
+        /* marca a opção selecionada */
         function selecionarOpcao(el, indice) {
             document.querySelectorAll(".quiz-opcao").forEach(op => {
                 op.classList.remove("selecionada");
@@ -264,7 +263,7 @@
             document.getElementById("btn-enviar").disabled = false;
         }
 
-        /* ── processa a resposta enviada ── */
+        /* processa a resposta enviada */
         function enviarResposta() {
             const q      = quiz.perguntas[atual];
             const opcoes = document.querySelectorAll(".quiz-opcao");
@@ -290,15 +289,15 @@
             }, 1200);
         }
 
-        /* ── mostra o resultado final do quiz ── */
+        /* mostra o resultado final do quiz */
         function mostrarResultado() {
             /* precisa acertar 3 de 5 para passar */
             const passou = acertos >= 3;
 
-            /* ── avança o progresso no localStorage se passou ──
+            /* avança o progresso no localStorage se passou
                quiz 1 passado → progresso = 3 (desbloqueia quiz 2)
-               quiz 2 passado → progresso = 4 (desbloqueia avaliação)
-            ── */
+               quiz 2 passado → progresso = 4 (desbloqueia avaliação) */
+
             if (passou) {
                 const progressoKey = `progresso-${cursoKey}`;
                 const novoProgresso = quizNum === "2" ? 4 : 3;
@@ -308,7 +307,7 @@
                 }
             }
 
-            /* ── define o próximo passo ── */
+            /* define o próximo passo */
             const proximoLink = passou
                 ? (quizNum === "2"
                     ? `avaliacao.html?curso=${cursoKey}`

@@ -15,7 +15,7 @@
 
 <body>
 
-    <!-- ══ NAVBAR ══ -->
+    <!-- NAVBAR -->
     <header>
         <nav>
             <!-- logo leva para o dashboard do aluno -->
@@ -53,15 +53,14 @@
     </main>
 
     <script>
-        /* ══════════════════════════════════════════
-           DADOS DE CADA CURSO
+        /* DADOS DE CADA CURSO
            5 etapas na ordem:
            0 - Artigo 1  → etapa=1
            1 - Artigo 2  → etapa=2
            2 - Quiz 1    → quiz=1
            3 - Quiz 2    → quiz=2
-           4 - Avaliação Final
-        ══════════════════════════════════════════ */
+           4 - Avaliação Final */
+
         const cursos = {
             "Front-End": {
                 titulo: "Front <span class='destaque'>End</span>",
@@ -138,19 +137,19 @@
         /* lados alternados da trilha */
         const lados = ["esquerda", "direita", "esquerda", "direita", "esquerda"];
 
-        /* ── pega o curso da URL ── */
+        /* pega o curso da URL */
         const params   = new URLSearchParams(window.location.search);
         const cursoKey = params.get("curso") || "Front-End";
         const curso    = cursos[cursoKey] || cursos["Front-End"];
 
-        /* ── lê o progresso do localStorage ──
+        /* lê o progresso do localStorage
            0 = só artigo 1 disponível (estado inicial)
            1 = artigo 1 lido → artigo 2 disponível
            2 = artigo 2 lido → quiz 1 disponível
            3 = quiz 1 passou → quiz 2 disponível
            4 = quiz 2 passou → avaliação disponível
-           5 = avaliação passou → módulo concluído
-        ── */
+           5 = avaliação passou → módulo concluído */
+
         const progressoKey = `progresso-${cursoKey}`;
         const concluido    = localStorage.getItem(`concluido-${cursoKey}`) === "true";
         const progresso    = parseInt(localStorage.getItem(progressoKey) || "0");
@@ -158,7 +157,7 @@
         /* preenche o título */
         document.getElementById("titulo-curso").innerHTML = curso.titulo;
 
-        /* ── define o status de cada atividade ── */
+        /* define o status de cada atividade */
         function getStatus(index) {
             if (concluido)          return "concluida";
             if (progresso > index)  return "concluida";
@@ -166,7 +165,7 @@
             return "bloqueada";
         }
 
-        /* ── define o link correto de cada atividade ── */
+        /* define o link correto de cada atividade */
         function getLink(tipo) {
             if (tipo === "artigo1")   return `artigo.html?curso=${cursoKey}&etapa=1`;
             if (tipo === "artigo2")   return `artigo.html?curso=${cursoKey}&etapa=2`;
@@ -176,7 +175,7 @@
             return "#";
         }
 
-        /* ── monta a trilha ── */
+        /* monta a trilha */
         const trilha = document.getElementById("trilha-vertical");
 
         curso.atividades.forEach((at, index) => {
