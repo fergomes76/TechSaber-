@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-# TechSaber
+# TechSaber+
 Plataforma digital de aprendizado em tecnologia, desenvolvida como trabalho acadêmico (PIM III) no curso de **Análise e Desenvolvimento de Sistemas - 2026**.
 
 ---
@@ -89,7 +88,3 @@ TechSaber+/
 ## Licença
 
 Este projeto é de uso acadêmico. Todos os direitos reservados aos autores.
-=======
-# TechSaber+
-Plataforma educacional de tecnologia - PIM III 2026
->>>>>>> 3740b98e5f353cec3a520ad5791068d0b8d6aacb
